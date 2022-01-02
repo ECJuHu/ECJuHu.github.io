@@ -1,0 +1,144 @@
+
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix wdrs: <http://www.w3.org/2007/05/powder-s#> .
+@prefix gndo: <http://d-nb.info/standards/elementset/gnd#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wikibase: <http://wikiba.se/ontology#Statement> .
+@prefix p: <http://www.wikidata.org/prop/> .
+@prefix pq: <http://www.wikidata.org/prop/qualifier/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dhpluso: <https://dhplus.sbg.ac.at/ontology#> .
+@prefix dhplusi: <http://dhplus.sbg.ac.at/instance/> .
+@prefix kngoei: <http://dhplus.sbg.ac.at/kngoe/instance/> .
+
+dhpluso:event
+  a owl:Ontology ;
+  dc:title "dhPLUS Ontologie"@de ;
+  dc:title "dhPLUS Ontology"@en ;
+  dct:creator "Richard Hörmann" ;
+  owl:comment "This is an ontology of the dhPLUS repository for Digital Humanities Projects of the University of Salzburg."@en ;
+  owl:versionInfo "0.1"^^xsd:string, "2019-12-27"^^xsd:date ;
+  owl:versionIRI <https://dhplus.sbg.ac.at/ontology#/0.1> ;
+  #owl:imports
+.
+
+#dhplus
+#################################################################
+
+#work
+_:EventShape
+    a sh:NodeShape ;
+
+#shacl validation
+    sh:targetClass dhpluso:Event ;
+
+    sh:property [
+                    sh:path owl:sameAs ;
+                    sh:nodeKind sh:IRI ;
+                    sh:pattern "http://test#rss/channel/item_" ;                    
+                ] ;
+    sh:property [
+                    sh:path dhpluso:source ;
+                    sh:nodeKind sh:IRI ;
+                    sh:pattern "/projSpec" ;
+                    # sh:class dhpluso:ProjectSpecific ;
+                ] ;
+    sh:property [
+                    sh:path dhpluso:P1_is_identified_by ;                    
+                    sh:nodeKind sh:BlankNode ;
+                    sh:or (
+                              [ sh:class dhpluso:E50_Date ]
+                              [ sh:class dhpluso:E35_Title ]
+                          ) ;
+                ] ;    
+    sh:property [
+                    sh:path dhpluso:P67i_is_referred_to_by ;                    
+                    sh:nodeKind sh:BlankNode ;
+                    sh:or (
+                              [ sh:class dhpluso:E31_Document ]
+                              [ sh:class dhpluso:E38_Image ]
+                          ) ;
+                ] ;    
+.
+
+_:DateShape
+    a sh:NodeShape ;
+
+#shacl validation
+    sh:targetClass dhpluso:E50_Date ;
+
+    sh:property [
+                    sh:path rdfs:label ;
+                    sh:datatype xsd:string ;
+                    sh:hasValue "date" ;                    
+                ] ;
+    sh:property [
+                    sh:path dhpluso:P585 ;
+                    #WP Format RFC 1123
+                    #convert to ISO 8601 (xsd:date) in JS with https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
+                    sh:datatype xsd:string ;                                        
+                ] ;                
+.
+
+_:TitleShape
+    a sh:NodeShape ;
+
+#shacl validation
+    sh:targetClass dhpluso:E35_Title ;
+
+    sh:property [
+                    sh:path rdfs:label ;
+                    sh:datatype xsd:string ;
+                    sh:hasValue "title" ;                    
+                ] ;
+    sh:property [
+                    sh:path rdf:value ;
+                    sh:datatype xsd:string ;                                        
+                ] ;                
+.
+
+_:TextShape
+    a sh:NodeShape ;
+
+#shacl validation
+    sh:targetClass dhpluso:E31_Document ;
+
+    sh:property [
+                    sh:path rdfs:label ;
+                    sh:datatype xsd:string ;
+                    sh:hasValue "text" ;                    
+                ] ;
+    sh:property [
+                    sh:path rdf:value ;
+                    sh:datatype xsd:string ;                                        
+                ] ;
+    sh:property [
+                    sh:path ( dhpluso:P67_refers_to schema:url ) ;
+                    sh:datatype xsd:string ;
+                ] ;                                
+.
+
+_:PicShape
+    a sh:NodeShape ;
+
+#shacl validation
+    sh:targetClass dhpluso:E38_Image ;
+
+    sh:property [
+                    sh:path rdfs:label ;
+                    sh:datatype xsd:string ;
+                    sh:hasValue "pictureref" ;                    
+                ] ;
+    sh:property [
+                    sh:path rdf:value ;
+                    sh:datatype xsd:string ;                                        
+                ] ;    
+.

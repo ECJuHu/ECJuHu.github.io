@@ -1,0 +1,341 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix wdrs: <http://www.w3.org/2007/05/powder-s#> .
+@prefix gndo: <http://d-nb.info/standards/elementset/gnd#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wikibase: <http://wikiba.se/ontology#Statement> .
+@prefix p: <http://www.wikidata.org/prop/> .
+@prefix pq: <http://www.wikidata.org/prop/qualifier/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix schema: <http://schema.org/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix bf: <http://id.loc.gov/ontologies/bibframe/> .
+@prefix bflc: <http://id.loc.gov/ontologies/bflc/> .
+@prefix dhpluso: <https://dhplus.sbg.ac.at/ontology#> .
+@prefix dhplusi: <http://dhplus.sbg.ac.at/instance/> .
+@prefix kngoei: <http://dhplus.sbg.ac.at/kngoe/instance/> .
+
+#################################################################
+#dhplus
+#################################################################
+<http://dhplus.sbg.ac.at/kngoe/instance/828f9830-91b1-11ea-bb37-0242ac130002>
+        a           <https://dhplus.sbg.ac.at/ontology#E21_Person> ;
+        owl:sameAs  <http://viaf.org/viaf/220738564> , <https://orcid.org/0000-0003-2650-543X> ;
+        <https://dhplus.sbg.ac.at/ontology#P100i_died_in>
+                    <http://dhplus.sbg.ac.at/kngoe/instance/3536ba8e-eebb-11ea-adc1-0242ac120002> ;
+        <https://dhplus.sbg.ac.at/ontology#P1_is_identified_by>
+                    _:b4 ;
+        <https://dhplus.sbg.ac.at/ontology#P2_has_type>
+                    [ a       <https://dhplus.sbg.ac.at/ontology#Gender> ;
+                      <https://dhplus.sbg.ac.at/ontology#gender>
+                              <https://d-nb.info/standards/vocab/gnd/gender#female>
+                    ] ;
+        <https://dhplus.sbg.ac.at/ontology#P98i_was_born>
+                    <http://dhplus.sbg.ac.at/kngoe/instance/126b6a72-eebb-11ea-adc1-0242ac120002> ;
+        <https://dhplus.sbg.ac.at/ontology#creator>
+                    "NN" ;
+        <https://dhplus.sbg.ac.at/ontology#creator>
+                    <urn:URI> ;
+        <https://dhplus.sbg.ac.at/ontology#dateCreated>
+                    "0001-01-01T00:00:00"^^xsd:dateTime ;
+        <https://dhplus.sbg.ac.at/ontology#dateModified>
+                    "0001-01-01T00:00:00"^^xsd:dateTime ;
+        <https://dhplus.sbg.ac.at/ontology#datePublished>
+                    "0001-01-01T00:00:00"^^xsd:dateTime ;
+        <https://dhplus.sbg.ac.at/ontology#source>
+                    <http://dhplus.sbg.ac.at/kngoe/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local> , <http://dhplus.sbg.ac.at/kngoe/instance/828f9830-91b1-11ea-bb37-0242ac130002/projSpec> , <http://dhplus.sbg.ac.at/kngoe/instance/828f9830-91b1-11ea-bb37-0242ac130002/wikiData-local> .
+
+##name
+_:b4    a           <https://dhplus.sbg.ac.at/ontology#NameOfThePerson> ;
+        rdfs:label  "Brigitte Mazohl"@en , "Brigitte Mazohl"@de ;
+        <https://dhplus.sbg.ac.at/ontology#academicDegree>
+                    "Prof. Dr." ;
+        <https://dhplus.sbg.ac.at/ontology#biographicalOrHistoricalInformation>
+                    "Prof. für Österreichische Geschichte an der Univ. Innsbruck (seit 1993)"@de ;
+        <https://dhplus.sbg.ac.at/ontology#functionOrRoleAsLiteral>
+                "Stellvertrende Vorsitzende"@de ;
+        <https://dhplus.sbg.ac.at/ontology#preferredNameEntityForThePerson>
+                    _:b0 ;
+        <https://dhplus.sbg.ac.at/ontology#preferredNameForThePerson>
+                    "Mazohl, Brigitte" ;
+        <https://dhplus.sbg.ac.at/ontology#variantNameEntityForThePerson>
+                    _:b3 , _:b1 , _:b2 .
+
+#################################################################
+#wikidata
+#################################################################
+<http://dhplus.sbg.ac.at/kngoe/instance/828f9830-91b1-11ea-bb37-0242ac130002/wikiData-local>
+        a       <https://dhplus.sbg.ac.at/ontology#WikiData-local> ;
+        <https://dhplus.sbg.ac.at/ontology#hasPart>
+                [ a                            <http://schema.org/Dataset> ;
+                  <http://creativecommons.org/ns#license>
+                          <http://creativecommons.org/publicdomain/zero/1.0/> ;
+                  <http://schema.org/about>    <http://www.wikidata.org/entity/Q19727197> ;
+                  <http://schema.org/dateModified>
+                          "2020-10-05T10:14:38Z"^^xsd:dateTime ;
+                  <http://schema.org/version>  1286984077
+                ] .
+
+#################################################################
+#gnd
+<http://dhplus.sbg.ac.at/kngoe/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local>
+        a       <https://dhplus.sbg.ac.at/ontology#Gnd-local> ;
+        <https://dhplus.sbg.ac.at/ontology#hasPart>
+                [ a           <https://d-nb.info/standards/elementset/gnd#DifferentiatedPerson> ;
+                  owl:sameAs  <http://viaf.org/viaf/220738564> , <https://orcid.org/0000-0003-2650-543X> ;
+                  <http://www.w3.org/2007/05/powder-s#describedby>
+                          <https://d-nb.info/gnd/129199176/about> ;
+                  <https://d-nb.info/standards/elementset/gnd#academicDegree>
+                          "Prof. Dr." ;
+                  <https://d-nb.info/standards/elementset/gnd#biographicalOrHistoricalInformation>
+                          "Prof. für Österreichische Geschichte an der Univ. Innsbruck (seit 1993)"@de ;
+                  <https://d-nb.info/standards/elementset/gnd#dateOfBirth>
+                          "1947"^^xsd:gYear ;
+                  <https://d-nb.info/standards/elementset/gnd#gender>
+                          <https://d-nb.info/standards/vocab/gnd/gender#female> ;
+                  <https://d-nb.info/standards/elementset/gnd#gndIdentifier>
+                          "129199176" ;
+                  <https://d-nb.info/standards/elementset/gnd#placeOfBirth>
+                          <https://d-nb.info/gnd/4007901-6> ;
+                  <https://d-nb.info/standards/elementset/gnd#preferredNameEntityForThePerson>
+                          _:b0 ;
+                  <https://d-nb.info/standards/elementset/gnd#preferredNameForThePerson>
+                          "Mazohl, Brigitte" ;
+                  <https://d-nb.info/standards/elementset/gnd#variantNameEntityForThePerson>
+                          _:b1 , _:b2 , _:b3 ;
+                  <https://d-nb.info/standards/elementset/gnd#variantNameOfThePerson>
+                          "Wallnig, Brigitte Mazohl-" , "Wallnig, Brigitte M.-" , "Mazohl-Wallnig, Brigitte"
+                ] .
+
+#################################################################
+#project specific
+#################################################################
+<http://dhplus.sbg.ac.at/kngoe/instance/828f9830-91b1-11ea-bb37-0242ac130002/projSpec>
+        a       <https://dhplus.sbg.ac.at/ontology#ProjectSpecific> ;
+        <https://dhplus.sbg.ac.at/ontology#hasPart>
+        [
+                #<https://dhplus.sbg.ac.at/ontology#biographicalOrHistoricalInformation> "em. o. Univ. Prof. für österreichische Geschichte, Universität Innsbruck"@de ;
+                dhpluso:functionOrRoleAsLiteral "Stellvertrende Vorsitzende"@de ;
+        ]
+.
+
+<file:///C:/Users/rh/Git-PLUS/dhpshacl-RH/1383b9f4-7c83-4e5d-bbe3-d8d8a39c3f97/stmt>
+        a            rdf:Statement ;
+        rdf:object   "Wallnig, Brigitte Mazohl-" ;
+        rdf:subject  _:b4 ;
+        <https://dhplus.sbg.ac.at/ontology#value-code>
+                <https://dhplus.sbg.ac.at/vocabulary#default> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-prop>
+                <https://d-nb.info/standards/elementset/gnd#variantNameForThePerson> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-uri>
+                <http://dhplus.sbg.ac.at/kngoe/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local> .
+
+<file:///C:/Users/rh/Git-PLUS/dhpshacl-RH/1f36ee76-f99b-4381-9e6c-caef98060776/stmt>
+        a              rdf:Statement ;
+        rdf:object     "Brigitte" ;
+        rdf:predicate  <https://dhplus.sbg.ac.at/ontology#forename> ;
+        rdf:subject    _:b0 ;
+        <https://dhplus.sbg.ac.at/ontology#value-code>
+                <https://dhplus.sbg.ac.at/vocabulary#default> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-prop>
+                <https://d-nb.info/standards/elementset/gnd#forename> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-uri>
+                <http://dhplus.sbg.ac.at/kngoe/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local> .
+
+<file:///C:/Users/rh/Git-PLUS/dhpshacl-RH/571a7af9-911c-4c17-bdb8-899aad27f386/stmt>
+        a              rdf:Statement ;
+        rdf:object     "Brigitte Mazohl-" ;
+        rdf:predicate  <https://dhplus.sbg.ac.at/ontology#forename> ;
+        rdf:subject    _:b1 ;
+        <https://dhplus.sbg.ac.at/ontology#value-code>
+                <https://dhplus.sbg.ac.at/vocabulary#default> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-prop>
+                <https://d-nb.info/standards/elementset/gnd#forename> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-uri>
+                <http://dhplus.sbg.ac.at/kngoe/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local> .
+
+<file:///C:/Users/rh/Git-PLUS/dhpshacl-RH/d908b376-d434-4f67-9ccc-63a8758eea76/stmt>
+        a            rdf:Statement ;
+        rdf:object   "Wallnig, Brigitte M.-" ;
+        rdf:subject  _:b4 ;
+        <https://dhplus.sbg.ac.at/ontology#value-code>
+                <https://dhplus.sbg.ac.at/vocabulary#default> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-prop>
+                <https://d-nb.info/standards/elementset/gnd#variantNameForThePerson> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-uri>
+                <http://dhplus.sbg.ac.at/kngoe/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local> .
+
+<file:///C:/Users/rh/Git-PLUS/dhpshacl-RH/a5b5c34d-a22d-4013-a83f-1cd6786086c0/stmt>
+        a              rdf:Statement ;
+        rdf:object     "Mazohl, Brigitte" ;
+        rdf:predicate  <https://dhplus.sbg.ac.at/ontology#preferredNameForThePerson> ;
+        rdf:subject    _:b4 ;
+        <https://dhplus.sbg.ac.at/ontology#value-code>
+                <https://dhplus.sbg.ac.at/vocabulary#default> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-prop>
+                <https://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-uri>
+                <http://dhplus.sbg.ac.at/kngoe/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local> .
+
+<file:///C:/Users/rh/Git-PLUS/dhpshacl-RH/9b187280-98c6-4322-a56b-0338fb545267/stmt>
+        a              rdf:Statement ;
+        rdf:object     "Mazohl-Wallnig" ;
+        rdf:predicate  <https://dhplus.sbg.ac.at/ontology#surname> ;
+        rdf:subject    _:b3 ;
+        <https://dhplus.sbg.ac.at/ontology#value-code>
+                <https://dhplus.sbg.ac.at/vocabulary#default> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-prop>
+                <https://d-nb.info/standards/elementset/gnd#surname> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-uri>
+                <http://dhplus.sbg.ac.at/kngoe/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local> .
+
+<file:///C:/Users/rh/Git-PLUS/dhpshacl-RH/9a18972f-673a-4b28-9959-3b665d7cfed4/stmt>
+        a              rdf:Statement ;
+        rdf:object     "Prof. Dr." ;
+        rdf:predicate  <https://dhplus.sbg.ac.at/ontology#academicDegree> ;
+        rdf:subject    _:b4 ;
+        <https://dhplus.sbg.ac.at/ontology#value-code>
+                <https://dhplus.sbg.ac.at/vocabulary#default> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-prop>
+                <https://d-nb.info/standards/elementset/gnd#academicDegree> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-uri>
+                <http://dhplus.sbg.ac.at/kngoe/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local> .
+
+<file:///C:/Users/rh/Git-PLUS/dhpshacl-RH/b8917e0c-b927-4161-9e41-9ff54d2061da/stmt>
+        a              rdf:Statement ;
+        rdf:object     "Brigitte" ;
+        rdf:predicate  <https://dhplus.sbg.ac.at/ontology#forename> ;
+        rdf:subject    _:b3 ;
+        <https://dhplus.sbg.ac.at/ontology#value-code>
+                <https://dhplus.sbg.ac.at/vocabulary#default> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-prop>
+                <https://d-nb.info/standards/elementset/gnd#forename> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-uri>
+                <http://dhplus.sbg.ac.at/kngoe/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local> .
+
+_:b1    <https://d-nb.info/standards/elementset/gnd#forename>
+                "Brigitte Mazohl-" ;
+        <https://d-nb.info/standards/elementset/gnd#surname>
+                "Wallnig" ;
+        <https://dhplus.sbg.ac.at/ontology#forename>
+                "Brigitte Mazohl-" ;
+        <https://dhplus.sbg.ac.at/ontology#surname>
+                "Wallnig" .
+
+<file:///C:/Users/rh/Git-PLUS/dhpshacl-RH/c74d04f1-28a2-460d-818f-b7a8ca6394d9/stmt>
+        a              rdf:Statement ;
+        rdf:object     "Prof. für Österreichische Geschichte an der Univ. Innsbruck (seit 1993)"@de ;
+        rdf:predicate  <https://dhplus.sbg.ac.at/ontology#biographicalOrHistoricalInformation> ;
+        rdf:subject    _:b4 ;
+        <https://dhplus.sbg.ac.at/ontology#value-code>
+                <https://dhplus.sbg.ac.at/vocabulary#default> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-prop>
+                <https://d-nb.info/standards/elementset/gnd#biographicalOrHistoricalInformation> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-uri>
+                <http://dhplus.sbg.ac.at/kngoe/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local> .
+
+<file:///C:/Users/rh/Git-PLUS/dhpshacl-RH/61810b74-d8af-4a5b-9031-d9810f5d6c82/stmt>
+        a              rdf:Statement ;
+        rdf:object     "Wallnig" ;
+        rdf:predicate  <https://dhplus.sbg.ac.at/ontology#surname> ;
+        rdf:subject    _:b2 ;
+        <https://dhplus.sbg.ac.at/ontology#value-code>
+                <https://dhplus.sbg.ac.at/vocabulary#default> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-prop>
+                <https://d-nb.info/standards/elementset/gnd#surname> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-uri>
+                <http://dhplus.sbg.ac.at/kngoe/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local> .
+
+<file:///C:/Users/rh/Git-PLUS/dhpshacl-RH/6c731a03-c283-4e8e-bd92-10be11d673a5/stmt>
+        a              rdf:Statement ;
+        rdf:object     "Wallnig" ;
+        rdf:predicate  <https://dhplus.sbg.ac.at/ontology#surname> ;
+        rdf:subject    _:b1 ;
+        <https://dhplus.sbg.ac.at/ontology#value-code>
+                <https://dhplus.sbg.ac.at/vocabulary#default> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-prop>
+                <https://d-nb.info/standards/elementset/gnd#surname> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-uri>
+                <http://dhplus.sbg.ac.at/kngoe/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local> .
+
+<file:///C:/Users/rh/Git-PLUS/dhpshacl-RH/68b1164b-edbd-4e11-a6a9-ba623c38212a/stmt>
+        a            rdf:Statement ;
+        rdf:object   "Mazohl-Wallnig, Brigitte" ;
+        rdf:subject  _:b4 ;
+        <https://dhplus.sbg.ac.at/ontology#value-code>
+                <https://dhplus.sbg.ac.at/vocabulary#default> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-prop>
+                <https://d-nb.info/standards/elementset/gnd#variantNameForThePerson> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-uri>
+                <http://dhplus.sbg.ac.at/kngoe/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local> .
+
+_:b3    <https://d-nb.info/standards/elementset/gnd#forename>
+                "Brigitte" ;
+        <https://d-nb.info/standards/elementset/gnd#surname>
+                "Mazohl-Wallnig" ;
+        <https://dhplus.sbg.ac.at/ontology#forename>
+                "Brigitte" ;
+        <https://dhplus.sbg.ac.at/ontology#surname>
+                "Mazohl-Wallnig" .
+
+
+<file:///C:/Users/rh/Git-PLUS/dhpshacl-RH/0e3c6e38-28d1-4e3a-89dc-204ccc16d2ab/stmt>
+        a              rdf:Statement ;
+        rdf:object     "Brigitte M.-" ;
+        rdf:predicate  <https://dhplus.sbg.ac.at/ontology#forename> ;
+        rdf:subject    _:b2 ;
+        <https://dhplus.sbg.ac.at/ontology#value-code>
+                <https://dhplus.sbg.ac.at/vocabulary#default> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-prop>
+                <https://d-nb.info/standards/elementset/gnd#forename> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-uri>
+                <http://dhplus.sbg.ac.at/kngoe/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local> .
+
+_:b0    <https://d-nb.info/standards/elementset/gnd#forename>
+                "Brigitte" ;
+        <https://d-nb.info/standards/elementset/gnd#surname>
+                "Mazohl" ;
+        <https://dhplus.sbg.ac.at/ontology#forename>
+                "Brigitte" ;
+        <https://dhplus.sbg.ac.at/ontology#surname>
+                "Mazohl" .
+
+<http://www.wikidata.org/entity/Q19727197>
+        rdfs:label  "Brigitte Mazohl"@en , "Brigitte Mazohl"@de ;
+        <http://www.wikidata.org/prop/direct/P19>
+                <http://www.wikidata.org/entity/Q6526> ;
+        <http://www.wikidata.org/prop/direct/P21>
+                <http://www.wikidata.org/entity/Q6581072> ;
+        <http://www.wikidata.org/prop/direct/P569>
+                "1947-01-01T00:00:00Z"^^xsd:dateTime .
+
+<https://d-nb.info/gnd/129199176/about>
+        <http://purl.org/dc/terms/license>
+                <http://creativecommons.org/publicdomain/zero/1.0/> ;
+        <http://purl.org/dc/terms/modified>
+                "2020-03-26T17:54:52.000"^^xsd:dateTime .
+
+_:b2    <https://d-nb.info/standards/elementset/gnd#forename>
+                "Brigitte M.-" ;
+        <https://d-nb.info/standards/elementset/gnd#surname>
+                "Wallnig" ;
+        <https://dhplus.sbg.ac.at/ontology#forename>
+                "Brigitte M.-" ;
+        <https://dhplus.sbg.ac.at/ontology#surname>
+                "Wallnig" .
+
+<file:///C:/Users/rh/Git-PLUS/dhpshacl-RH/260426a7-aa0b-4a8c-ba60-0a3b39856c7d/stmt>
+        a              rdf:Statement ;
+        rdf:object     "Mazohl" ;
+        rdf:predicate  <https://dhplus.sbg.ac.at/ontology#surname> ;
+        rdf:subject    _:b0 ;
+        <https://dhplus.sbg.ac.at/ontology#value-code>
+                <https://dhplus.sbg.ac.at/vocabulary#default> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-prop>
+                <https://d-nb.info/standards/elementset/gnd#surname> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-uri>
+                <http://dhplus.sbg.ac.at/kngoe/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local> .

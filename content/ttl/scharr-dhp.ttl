@@ -1,0 +1,242 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix wdrs: <http://www.w3.org/2007/05/powder-s#> .
+@prefix gndo: <http://d-nb.info/standards/elementset/gnd#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wikibase: <http://wikiba.se/ontology#Statement> .
+@prefix p: <http://www.wikidata.org/prop/> .
+@prefix pq: <http://www.wikidata.org/prop/qualifier/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix schema: <http://schema.org/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix bf: <http://id.loc.gov/ontologies/bibframe/> .
+@prefix bflc: <http://id.loc.gov/ontologies/bflc/> .
+@prefix dhpluso: <https://dhplus.sbg.ac.at/ontology#> .
+@prefix dhplusi: <http://dhplus.sbg.ac.at/instance/> .
+@prefix kngoei: <http://dhplus.sbg.ac.at/kngoe/instance/> .
+
+#################################################################
+#dhplus
+#################################################################
+<http://dhplus.sbg.ac.at/kngoe/instance/828f9830-91b1-11ea-bb37-0242ac130002>
+        a           <https://dhplus.sbg.ac.at/ontology#E21_Person> ;
+        owl:sameAs  <http://viaf.org/viaf/8288651> ;
+        <https://dhplus.sbg.ac.at/ontology#P100i_died_in>
+                <http://dhplus.sbg.ac.at/instance/3536ba8e-eebb-11ea-adc1-0242ac120002> ;
+        <https://dhplus.sbg.ac.at/ontology#P1_is_identified_by>
+                _:b2 ;
+        <https://dhplus.sbg.ac.at/ontology#P2_has_type>
+                [ a       <https://dhplus.sbg.ac.at/ontology#Gender> ;
+                  <https://dhplus.sbg.ac.at/ontology#gender>
+                          <https://d-nb.info/standards/vocab/gnd/gender#male>
+                ] ;
+        <https://dhplus.sbg.ac.at/ontology#P98i_was_born>
+                <http://dhplus.sbg.ac.at/instance/126b6a72-eebb-11ea-adc1-0242ac120002> ;
+        <https://dhplus.sbg.ac.at/ontology#creator>
+                "NN" ;
+        <https://dhplus.sbg.ac.at/ontology#creator>
+                <urn:URI> ;
+        <https://dhplus.sbg.ac.at/ontology#dateCreated>
+                "0001-01-01T00:00:00"^^xsd:dateTime ;
+        <https://dhplus.sbg.ac.at/ontology#dateModified>
+                "0001-01-01T00:00:00"^^xsd:dateTime ;
+        <https://dhplus.sbg.ac.at/ontology#datePublished>
+                "0001-01-01T00:00:00"^^xsd:dateTime ;
+        <https://dhplus.sbg.ac.at/ontology#source>
+                <http://dhplus.sbg.ac.at/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local> , <http://dhplus.sbg.ac.at/instance/828f9830-91b1-11ea-bb37-0242ac130002/projSpec> , <http://dhplus.sbg.ac.at/instance/828f9830-91b1-11ea-bb37-0242ac130002/wikiData-local> .
+
+##name
+_:b2    a           <https://dhplus.sbg.ac.at/ontology#NameOfThePerson> ;
+        rdfs:label  "Kurt Scharr"@en , "Kurt Scharr"@de ;
+        <https://dhplus.sbg.ac.at/ontology#academicDegree>
+                "Dr. rer. nat." ;
+        dhpluso:biographicalOrHistoricalInformation
+                "Univ. Prof. für Österreichische Geschichte, Universität Innsbruck"@de ;
+        dhpluso:functionOrRoleAsLiteral
+                "Vorsitzender"@de ;
+        <https://dhplus.sbg.ac.at/ontology#preferredNameEntityForThePerson>
+                _:b0 ;
+        <https://dhplus.sbg.ac.at/ontology#preferredNameForThePerson>
+                "Scharr, Kurt" ;
+        <https://dhplus.sbg.ac.at/ontology#variantNameEntityForThePerson>
+                _:b1 .
+
+#################################################################
+#gnd
+#################################################################
+<http://dhplus.sbg.ac.at/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local>
+        a       <https://dhplus.sbg.ac.at/ontology#Gnd-local> ;
+        <https://dhplus.sbg.ac.at/ontology#hasPart>
+                [ a           <https://d-nb.info/standards/elementset/gnd#DifferentiatedPerson> ;
+                  owl:sameAs  <http://viaf.org/viaf/8288651> ;
+                  <http://www.w3.org/2007/05/powder-s#describedby>
+                          <https://d-nb.info/gnd/123191254/about> ;
+                  <https://d-nb.info/standards/elementset/gnd#academicDegree>
+                          "Dr. rer. nat." ;
+                  <https://d-nb.info/standards/elementset/gnd#dateOfBirth>
+                          "1970"^^xsd:gYear ;
+                  <https://d-nb.info/standards/elementset/gnd#gender>
+                          <https://d-nb.info/standards/vocab/gnd/gender#male> ;
+                  <https://d-nb.info/standards/elementset/gnd#gndIdentifier>
+                          "123191254" ;
+                  <https://d-nb.info/standards/elementset/gnd#preferredNameEntityForThePerson>
+                          _:b0 ;
+                  <https://d-nb.info/standards/elementset/gnd#preferredNameForThePerson>
+                          "Scharr, Kurt" ;
+                  <https://d-nb.info/standards/elementset/gnd#variantNameEntityForThePerson>
+                          _:b1 ;
+                  <https://d-nb.info/standards/elementset/gnd#variantNameOfThePerson>
+                          "Šarr, Kurt"
+                ] .
+<https://d-nb.info/gnd/123191254/about>
+        <http://purl.org/dc/terms/license>
+        <http://creativecommons.org/publicdomain/zero/1.0/> ;
+        <http://purl.org/dc/terms/modified>
+        "2020-08-31T14:22:06.000"^^xsd:dateTime .
+
+
+#################################################################
+#wikidata
+#################################################################
+<http://dhplus.sbg.ac.at/instance/828f9830-91b1-11ea-bb37-0242ac130002/wikiData-local>
+        a       <https://dhplus.sbg.ac.at/ontology#WikiData-local> ;
+        <https://dhplus.sbg.ac.at/ontology#hasPart>
+                [ a                            <http://schema.org/Dataset> ;
+                  <http://creativecommons.org/ns#license>
+                          <http://creativecommons.org/publicdomain/zero/1.0/> ;
+                  <http://schema.org/about>    <http://www.wikidata.org/entity/Q98555088> ;
+                  <http://schema.org/dateModified>
+                          "2020-10-17T18:59:37Z"^^xsd:dateTime ;
+                  <http://schema.org/version>  1293440440
+                ] .
+
+<http://www.wikidata.org/entity/Q98555088>
+        rdfs:label  "Kurt Scharr"@en , "Kurt Scharr"@de ;
+        <http://www.wikidata.org/prop/direct/P19>
+                    <http://www.wikidata.org/entity/Q257244> ;
+        <http://www.wikidata.org/prop/direct/P21>
+                    <http://www.wikidata.org/entity/Q6581097> ;
+        <http://www.wikidata.org/prop/direct/P569>
+                    "1970-10-12T00:00:00Z"^^xsd:dateTime .
+
+
+#################################################################
+#project specific
+#################################################################
+<http://dhplus.sbg.ac.at/kngoe/instance/828f9830-91b1-11ea-bb37-0242ac130002/projSpec>
+        a       <https://dhplus.sbg.ac.at/ontology#ProjectSpecific> ;
+        <https://dhplus.sbg.ac.at/ontology#hasPart>
+        [
+                dhpluso:biographicalOrHistoricalInformation "Univ. Prof. für Österreichische Geschichte, Universität Innsbruck"@de ;
+                dhpluso:functionOrRoleAsLiteral "Vorsitzender"@de ;
+        ]
+.
+
+
+<http://dhplus.sbg.ac.at/instance/stmt/4beab254-0a94-4014-9c43-89b7b631eff9>
+        a              rdf:Statement ;
+        rdf:object     "Kurt" ;
+        rdf:predicate  <https://dhplus.sbg.ac.at/ontology#forename> ;
+        rdf:subject    _:b1 ;
+        <https://dhplus.sbg.ac.at/ontology#value-code>
+                <https://dhplus.sbg.ac.at/vocabulary#default> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-prop>
+                <https://d-nb.info/standards/elementset/gnd#forename> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-uri>
+                <http://dhplus.sbg.ac.at/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local> .
+
+<http://dhplus.sbg.ac.at/instance/stmt/31ee7f5b-1dcc-4db5-b280-b5db11ec38f7>
+        a              rdf:Statement ;
+        rdf:object     "Scharr, Kurt" ;
+        rdf:predicate  <https://dhplus.sbg.ac.at/ontology#preferredNameForThePerson> ;
+        rdf:subject    _:b2 ;
+        <https://dhplus.sbg.ac.at/ontology#value-code>
+                <https://dhplus.sbg.ac.at/vocabulary#default> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-prop>
+                <https://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-uri>
+                <http://dhplus.sbg.ac.at/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local> .
+
+<http://dhplus.sbg.ac.at/instance/stmt/be9bf9c4-39d0-4a2f-987e-b22eece6a5ec>
+        a              rdf:Statement ;
+        rdf:object     "Kurt" ;
+        rdf:predicate  <https://dhplus.sbg.ac.at/ontology#forename> ;
+        rdf:subject    _:b0 ;
+        <https://dhplus.sbg.ac.at/ontology#value-code>
+                <https://dhplus.sbg.ac.at/vocabulary#default> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-prop>
+                <https://d-nb.info/standards/elementset/gnd#forename> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-uri>
+                <http://dhplus.sbg.ac.at/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local> .
+
+<http://dhplus.sbg.ac.at/instance/stmt/bb2dc0e6-8545-4cd1-b1da-bfbc15ab73b3>
+        a              rdf:Statement ;
+        rdf:object     "Scharr" ;
+        rdf:predicate  <https://dhplus.sbg.ac.at/ontology#surname> ;
+        rdf:subject    _:b0 ;
+        <https://dhplus.sbg.ac.at/ontology#value-code>
+                <https://dhplus.sbg.ac.at/vocabulary#default> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-prop>
+                <https://d-nb.info/standards/elementset/gnd#surname> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-uri>
+                <http://dhplus.sbg.ac.at/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local> .
+
+<http://dhplus.sbg.ac.at/instance/stmt/8c3c50d1-bacb-4657-9a07-040ca631b665>
+        a              rdf:Statement ;
+        rdf:object     "Šarr" ;
+        rdf:predicate  <https://dhplus.sbg.ac.at/ontology#surname> ;
+        rdf:subject    _:b1 ;
+        <https://dhplus.sbg.ac.at/ontology#value-code>
+                <https://dhplus.sbg.ac.at/vocabulary#default> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-prop>
+                <https://d-nb.info/standards/elementset/gnd#surname> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-uri>
+                <http://dhplus.sbg.ac.at/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local> .
+
+_:b1    <https://d-nb.info/standards/elementset/gnd#forename>
+                "Kurt" ;
+        <https://d-nb.info/standards/elementset/gnd#surname>
+                "Šarr" ;
+        <https://dhplus.sbg.ac.at/ontology#forename>
+                "Kurt" ;
+        <https://dhplus.sbg.ac.at/ontology#surname>
+                "Šarr" .
+
+_:b0    <https://d-nb.info/standards/elementset/gnd#forename>
+                "Kurt" ;
+        <https://d-nb.info/standards/elementset/gnd#surname>
+                "Scharr" ;
+        <https://dhplus.sbg.ac.at/ontology#forename>
+                "Kurt" ;
+        <https://dhplus.sbg.ac.at/ontology#surname>
+                "Scharr" .
+
+
+
+
+<http://dhplus.sbg.ac.at/instance/stmt/4f5437dc-48e5-42f4-833b-5358ac6833c9>
+        a              rdf:Statement ;
+        rdf:object     "Dr. rer. nat." ;
+        rdf:predicate  <https://dhplus.sbg.ac.at/ontology#academicDegree> ;
+        rdf:subject    _:b2 ;
+        <https://dhplus.sbg.ac.at/ontology#value-code>
+                <https://dhplus.sbg.ac.at/vocabulary#default> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-prop>
+                <https://d-nb.info/standards/elementset/gnd#academicDegree> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-uri>
+                <http://dhplus.sbg.ac.at/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local> .
+
+<http://dhplus.sbg.ac.at/instance/stmt/9edae709-504d-4a43-b43e-3870e33f97f0>
+        a            rdf:Statement ;
+        rdf:object   "Šarr, Kurt" ;
+        rdf:subject  _:b2 ;
+        <https://dhplus.sbg.ac.at/ontology#value-code>
+                <https://dhplus.sbg.ac.at/vocabulary#default> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-prop>
+                <https://d-nb.info/standards/elementset/gnd#variantNameForThePerson> ;
+        <https://dhplus.sbg.ac.at/ontology#value-source-uri>
+                <http://dhplus.sbg.ac.at/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local> .

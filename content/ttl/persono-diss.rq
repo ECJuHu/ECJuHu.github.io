@@ -1,0 +1,31 @@
+
+PREFIX xml: <http://www.w3.org/XML/1998/namespace>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX gndo: <https://d-nb.info/standards/elementset/gnd#>
+PREFIX ecrm: <http://erlangen-crm.org/current/>
+PREFIX bf: <http://id.loc.gov/ontologies/bibframe/>
+PREFIX bfo: <http://id.loc.gov/ontologies/bibframe.rdf>
+PREFIX schema: <http://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX wdrs: <http://www.w3.org/2007/05/powder-s#>
+PREFIX cc: <http://creativecommons.org/ns#>
+PREFIX dhpluso: <https://dhplus.sbg.ac.at/ontology#>
+
+SELECT ?root ?root_sameAs ?P1_is_identified_by ?P1_is_identified_by_label ?P1_is_identified_by_biographicalOrHistoricalInformation ?P1_is_identified_by_functionOrRole
+WHERE
+{ 
+    ?root a dhpluso:E21_Person .
+    OPTIONAL { ?root owl:sameAs ?root_sameAs . } 
+    ?root dhpluso:P1_is_identified_by ?P1_is_identified_by .
+    ?P1_is_identified_by rdfs:label ?P1_is_identified_by_label .
+    ?P1_is_identified_by dhpluso:biographicalOrHistoricalInformation ?P1_is_identified_by_biographicalOrHistoricalInformation .
+    ?P1_is_identified_by dhpluso:functionOrRole ?P1_is_identified_by_functionOrRole .
+}

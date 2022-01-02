@@ -1,0 +1,76 @@
+
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix wdrs: <http://www.w3.org/2007/05/powder-s#> .
+@prefix gndo: <http://d-nb.info/standards/elementset/gnd#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wikibase: <http://wikiba.se/ontology#Statement> .
+@prefix p: <http://www.wikidata.org/prop/> .
+@prefix pq: <http://www.wikidata.org/prop/qualifier/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix schema: <https://schema.org/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dhpluso: <https://dhplus.sbg.ac.at/ontology#> .
+@prefix dhplusi: <http://dhplus.sbg.ac.at/instance/> .
+@prefix kngoei: <http://dhplus.sbg.ac.at/kngoe/instance/> .
+
+#birth of person
+#dhplus
+kngoei:126b6a72-eebb-11ea-adc1-0242ac120002
+    a   dhpluso:E5_Event ;
+##admnistrative
+    dhpluso:creator "NN"^^xsd:string ;
+    #OR
+    dhpluso:creator <URI> ;
+    dhpluso:dateCreated "0001-01-01T00:00:00"^^xsd:dateTime ;
+    dhpluso:dateModified "0001-01-01T00:00:00"^^xsd:dateTime ;
+    dhpluso:datePublished "0001-01-01T00:00:00"^^xsd:dateTime ;
+
+##title
+    dhpluso:P1_is_identified_by [
+        a   dhpluso:E35_Title ;
+        #title
+        rdfs:label "title" ;
+        rdf:value "NN"^^xsd:string ;
+    ] ;
+##date
+    dhpluso:P1_is_identified_by [
+        a   dhpluso:E50_Date ;
+        #date
+        #WP Format RFC 1123
+        #convert to ISO 8601 (xsd:date) in JS with https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
+        #wiki point in time
+        rdfs:label "date" ;
+        dhpluso:P585 "Sun, 06 Nov 1994 08:49:37"^^xsd:string ;
+    ] ;
+##pictureref
+    dhpluso:P67i_is_referred_to_by [
+        a   dhpluso:E38_Image;
+        #pictureref
+        rdfs:label "pictureref" ;
+        #filename of image
+        rdf:value "NN"^^xsd:string ;
+    ] ;
+##text
+    dhpluso:P67i_is_referred_to_by [
+        a   dhpluso:E31_Document; #sublass of ecrm:E31 und schema:Text
+        #text
+        rdfs:label "text" ;
+        rdf:value "NN"^^xsd:string ;
+
+        dhpluso:P67_refers_to [
+            a   dhpluso:URL ; #subclass of schema:URL
+            #morelink
+            rdfs:label "morelink" ;
+            schema:url <URI> ;
+        ]
+    ] ;
+.
+
+#projspec
+<http://dhplus.sbg.ac.at/instance/3536ba8e-eebb-11ea-adc1-0242ac120002/projSpec>
+    a       <https://dhplus.sbg.ac.at/ontology#ProjectSpecific> ;
+.

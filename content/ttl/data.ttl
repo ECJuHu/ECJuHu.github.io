@@ -1,0 +1,1427 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix wdrs: <http://www.w3.org/2007/05/powder-s#> .
+@prefix gndo: <http://d-nb.info/standards/elementset/gnd#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wikibase: <http://wikiba.se/ontology#Statement> .
+@prefix p: <http://www.wikidata.org/prop/> .
+@prefix pq: <http://www.wikidata.org/prop/qualifier/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix schema: <http://schema.org/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix bf: <http://id.loc.gov/ontologies/bibframe/> .
+@prefix bflc: <http://id.loc.gov/ontologies/bflc/> .
+@prefix dhpluso: <https://dhplus.sbg.ac.at/ontology#> .
+@prefix dhplusi: <http://dhplus.sbg.ac.at/instance/> .
+@prefix blcdf: <http://id.loc.gov/datatypes/> .
+@prefix kngoei: <http://dhplus.sbg.ac.at/kngoe/instance/> .
+
+# Fellner-Zentralverwaltung-5-dhp.ttl
+
+#dhplus
+<http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004>
+    a   <https://dhplus.sbg.ac.at/ontology#E71_Human-Made_Thing> ;
+
+    <https://dhplus.sbg.ac.at/ontology#creator> "NN"^^xsd:string ;
+    <https://dhplus.sbg.ac.at/ontology#dateCreated> "0001-01-01T00:00:00"^^xsd:dateTime ;
+    <https://dhplus.sbg.ac.at/ontology#dateModified> "0001-01-01T00:00:00"^^xsd:dateTime ;
+    <https://dhplus.sbg.ac.at/ontology#datePublished> "0001-01-01T00:00:00"^^xsd:dateTime ;
+
+    <https://dhplus.sbg.ac.at/ontology#source>
+        <http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Bf-LoC> ,
+        <http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/projSpec> ;
+
+    <https://dhplus.sbg.ac.at/ontology#P1_is_identified_by> <http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Work> ;
+.
+#work
+<http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Work>
+    a <https://dhplus.sbg.ac.at/ontology#Work> ;
+
+    ##author, title - short
+    rdfs:label "Die österreichische Zentralverwaltung 1,1 Abt. 1, Von Maximilian I. bis zur Vereinigung der Österreichischen und Böhmischen Hofkanzlei (1749) ; Bd. 1, Geschichtliche Übersicht"^^xsd:string ;
+
+    ##adminMetadata
+    #MARC 001. 003, 016
+    <https://dhplus.sbg.ac.at/ontology#adminMetadata> [
+        a <https://dhplus.sbg.ac.at/ontology#AdminMetadata> ;
+        #ATTENTION: DNB uses 001 and 016, ALMA uses 035 (under instance)
+        #control number
+        #MARC 001
+        <https://dhplus.sbg.ac.at/ontology#identifiedBy> [
+            a <https://dhplus.sbg.ac.at/ontology#Local> ;
+            rdf:value "BV003733157"^^xsd:string ;
+        ] ;
+
+        #date and time of latest transaction
+        #MARC 005
+        <https://dhplus.sbg.ac.at/ontology#changeDate> "2018-10-31T00:00:00"^^xsd:dateTime ;
+        #date of creation
+        #MARC 008, character 0-5
+        <https://dhplus.sbg.ac.at/ontology#creationDate> "1990-07-25"^^xsd:date ;
+    ] ;
+
+    ##contribution
+    #MARC 100, 500, 700
+    <https://dhplus.sbg.ac.at/ontology#contribution> [
+        a <https://dhplus.sbg.ac.at/ontology#Contribution> ;
+        #Main Entry-Personal Name
+        #MARC 100
+        #OR
+        #General Note - Personenname (DNB)
+        #MARC 500
+        #ATTENTION: Record Control Number (GND) in 500 is not converted by LoC
+        #OR
+        #Added Entry-Personal Name
+        #MARC 700
+
+        #relation to dhplus:Person dataset
+        <https://dhplus.sbg.ac.at/ontology#agent> <Person-URI> ;
+        <https://dhplus.sbg.ac.at/ontology#agent> <http://d-nb.info/gnd/132483068> ;
+        <https://dhplus.sbg.ac.at/ontology#agent> <https://www.wikidata.org/wiki/Q94762024> ;
+
+        #Relator term
+        #MARC $e OR $4
+        #editor
+        <https://dhplus.sbg.ac.at/ontology#role> <http://id.loc.gov/vocabulary/relators/edt> ;
+    ] ;
+
+    ##title
+    #MARC 245
+    <https://dhplus.sbg.ac.at/ontology#title> [
+        a <https://dhplus.sbg.ac.at/ontology#Title> ;
+        #MARC summary of $afgknps
+        rdfs:label "Die österreichische Zentralverwaltung 1,1 Abt. 1, Von Maximilian I. bis zur Vereinigung der Österreichischen und Böhmischen Hofkanzlei (1749) ; Bd. 1, Geschichtliche Übersicht"^^xsd:string ;
+        #MARC $a
+        dhpluso:mainTitle "Die österreichische Zentralverwaltung"^^xsd:string ;
+        #MARC $n
+        <https://dhplus.sbg.ac.at/ontology#partNumber> "1,1"^^xsd:string ;
+        #MARC $p
+        <https://dhplus.sbg.ac.at/ontology#partName> "Abt. 1, Von Maximilian I. bis zur Vereinigung der Österreichischen und Böhmischen Hofkanzlei (1749) ; Bd. 1, Geschichtliche Übersicht"^^xsd:string ;
+    ] ;
+
+    <https://dhplus.sbg.ac.at/ontology#hasInstance> <http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Instance> ;
+.
+
+#instance
+<http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Instance>
+    a   <https://dhplus.sbg.ac.at/ontology#Instance> ;
+
+    ##author, title - short
+    rdfs:label "Die österreichische Zentralverwaltung 1,1 Abt. 1, Von Maximilian I. bis zur Vereinigung der Österreichischen und Böhmischen Hofkanzlei (1749) ; Bd. 1, Geschichtliche Übersicht" ;
+    <https://dhplus.sbg.ac.at/ontology#mainTitle> "Die österreichische Zentralverwaltung"^^xsd:string ;
+    <https://dhplus.sbg.ac.at/ontology#partNumber> "1,1"^^xsd:string ;
+    <https://dhplus.sbg.ac.at/ontology#partName> "Abt. 1, Von Maximilian I. bis zur Vereinigung der Österreichischen und Böhmischen Hofkanzlei (1749) ; Bd. 1, Geschichtliche Übersicht"^^xsd:string ;
+    
+    #title
+    #MARC 245
+    <https://dhplus.sbg.ac.at/ontology#title> [
+         a <https://dhplus.sbg.ac.at/ontology#Title> ;
+     #MARC summary of $afgknps
+         rdfs:label "Die österreichische Zentralverwaltung 1,1 Abt. 1, Von Maximilian I. bis zur Vereinigung der Österreichischen und Böhmischen Hofkanzlei (1749) ; Bd. 1, Geschichtliche Übersicht"^^xsd:string ;
+     #MARC $a
+         <https://dhplus.sbg.ac.at/ontology#mainTitle> "Die österreichische Zentralverwaltung"^^xsd:string ;
+     #MARC $n
+         <https://dhplus.sbg.ac.at/ontology#partNumber> "1,1"^^xsd:string ;
+     #MARC $p
+         <https://dhplus.sbg.ac.at/ontology#partName> "Abt. 1, Von Maximilian I. bis zur Vereinigung der Österreichischen und Böhmischen Hofkanzlei (1749) ; Bd. 1, Geschichtliche Übersicht"^^xsd:string ;
+     ] ;
+
+    #Production, Publication, Distribution, Manufacture, and Copyright Notice
+    #MARC 264
+    <https://dhplus.sbg.ac.at/ontology#provisionActivity> [
+        a <https://dhplus.sbg.ac.at/ontology#ProvisionActivity>, <https://dhplus.sbg.ac.at/ontology#Publication> ;
+        #MARC $a
+        <https://dhplus.sbg.ac.at/ontology#place> [
+            #place of production
+            a <https://dhplus.sbg.ac.at/ontology#Place> ;
+            rdfs:label "Wien"^^xsd:string ;
+        ] ;
+        #MARC $b
+        <https://dhplus.sbg.ac.at/ontology#agent> [
+            #publisher
+            a <https://dhplus.sbg.ac.at/ontology#Agent> ;
+            rdfs:label "Holzhausen"^^xsd:string ;
+        ] ;
+        #MARC $c
+        #date of production
+        <https://dhplus.sbg.ac.at/ontology#date> "1907"^^xsd:string ;
+    ] ;
+    #MARC 264 summary of $abc
+    <https://dhplus.sbg.ac.at/ontology#provisionActivityStatement> "Wien; Holzhausen; 1907"^^xsd:string ;
+    #statement of responsibility
+    #MARC 245 $c
+    <https://dhplus.sbg.ac.at/ontology#responsibilityStatement> "von Thomas Fellner. Nach dessen Tode bearb. und vollendet von Heinrich Kretschmayr"^^xsd:string ;
+
+    #extent
+    #MARC 300 $a
+    <https://dhplus.sbg.ac.at/ontology#extent> [
+        a dhpluso:Extent ;
+        rdfs:label "XII, 288 S."^^xsd:string ;
+    ] ;
+
+    #in series
+    #MARC 8xx
+    <https://dhplus.sbg.ac.at/ontology#hasSeries> <http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Instance8xx> ;
+
+    <https://dhplus.sbg.ac.at/ontology#instanceOf> <http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Work> ;
+    <https://dhplus.sbg.ac.at/ontology#hasItem> <http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Item> ;
+.
+
+##series-instance
+#MARC 8xx
+<http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Instance8xx>
+    a <https://dhplus.sbg.ac.at/ontology#Instance> ;
+    #series statement
+    #MARC $a
+    rdfs:label "Kommission für Neuere Geschichte Österreichs: Veröffentlichungen der Kommission für Neuere Geschichte Österreichs"^^xsd:string ;
+    #volume/sequential designation
+    #MARC $v
+    <https://dhplus.sbg.ac.at/ontology#seriesEnumeration> "5"^^xsd:string ;
+    #MARC summary of $av
+    <https://dhplus.sbg.ac.at/ontology#seriesStatement> "Kommission für Neuere Geschichte Österreichs: Veröffentlichungen der Kommission für Neuere Geschichte Österreichs 5"^^xsd:string ;
+
+    <https://dhplus.sbg.ac.at/ontology#instanceOf> <http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Work8xx> ;
+.
+
+#item
+<http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Item>
+    a   <https://dhplus.sbg.ac.at/ontology#Item> ;
+
+    <https://dhplus.sbg.ac.at/ontology#itemOf> <http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Instance> ;
+.
+
+#################################################################
+#MarcToBf-LoC
+<http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Bf-LoC>
+    a   <https://dhplus.sbg.ac.at/ontology#MarcToBf-LoC> ;
+    <https://dhplus.sbg.ac.at/ontology#hasPart> [
+        a bf:Work , bf:Text ;
+        rdfs:label         "Die österreichische Zentralverwaltung 1,1 Abt. 1, Von Maximilian I. bis zur Vereinigung der Österreichischen und Böhmischen Hofkanzlei (1749) ; Bd. 1, Geschichtliche Übersicht" ;
+        bf:adminMetadata   [ a                          bf:AdminMetadata ;
+                             bflc:encodingLevel         [ a        bflc:EncodingLevel ;
+                                                          bf:code  "f"
+                                                        ] ;
+                             bf:changeDate              "2018-10-31T  :  :  "^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+                             bf:creationDate            "1990-07-25"^^<http://www.w3.org/2001/XMLSchema#date> ;
+                             bf:descriptionConventions  <http://id.loc.gov/vocabulary/descriptionConventions/rakddb> ;
+                             bf:descriptionConventions  [ a        bf:DescriptionConventions ;
+                                                          bf:code  "isbd"
+                                                        ] ;
+                             bf:descriptionLanguage     <http://id.loc.gov/vocabulary/languages/ger> ;
+                             bf:generationProcess       [ a           bf:GenerationProcess ;
+                                                          rdfs:label  "DLC marc2bibframe2 v1.4.0-SNAPSHOT: 2021-01-26T20:39:59.587+01:00"
+                                                        ] ;
+                             bf:identifiedBy            [ a          bf:Local ;
+                                                          rdf:value  "BV003733157"
+                                                        ] ;
+                             bf:source                  [ a           bf:Agent , bf:Source ;
+                                                          rdfs:label  "DE-604"
+                                                        ] ;
+                             bf:source                  [ a        bf:Source ;
+                                                          bf:code  "DE-604"
+                                                        ] ;
+                             bf:status                  [ a        bf:Status ;
+                                                          bf:code  "n"
+                                                        ]
+                           ] ;
+        bf:classification  [ a                         bf:Classification ;
+                             bf:classificationPortion  "7,41" ;
+                             bf:source                 [ a           bf:Source ;
+                                                         rdfs:label  "ssgn"
+                                                       ]
+                           ] ;
+        bf:content         <http://id.loc.gov/vocabulary/contentTypes/txt> ;
+        bf:contribution    [ a         bf:Contribution ;
+                             bf:agent  <http://example.org/BV003733157#Agent700-12> ;
+                             bf:role   <http://id.loc.gov/vocabulary/relators/edt>
+                           ] ;
+        bf:contribution    [ a         bf:Contribution ;
+                             bf:agent  <http://example.org/BV003733157#Agent700-13> ;
+                             bf:role   <http://id.loc.gov/vocabulary/relators/oth> ;
+                             bf:role   [ a                     bf:Role ;
+                                         rdfs:label            "Sonstige" ;
+                                         bflc:relatorMatchKey  "Sonstige"
+                                       ]
+                           ] ;
+        bf:contribution    [ a         bf:Contribution ;
+                             bf:agent  <http://example.org/BV003733157#Agent700-14> ;
+                             bf:role   <http://id.loc.gov/vocabulary/relators/edt>
+                           ] ;
+        bf:hasInstance     <http://example.org/BV003733157#Instance> ;
+        bf:language        <http://id.loc.gov/vocabulary/languages/ger> ;
+        bf:language        [ a                bf:Language ;
+                             bf:identifiedBy  [ a          bf:Identifier ;
+                                                rdf:value  <http://id.loc.gov/vocabulary/languages/ger> ;
+                                                bf:source  <http://id.loc.gov/vocabulary/languages>
+                                              ]
+                           ] ;
+        bf:partOf          <http://example.org/BV003733157#Work773-27> ;
+        bf:title           [ a                  bf:Title ;
+                             rdfs:label         "Die österreichische Zentralverwaltung 1,1 Abt. 1, Von Maximilian I. bis zur Vereinigung der Österreichischen und Böhmischen Hofkanzlei (1749) ; Bd. 1, Geschichtliche Übersicht" ;
+                             bflc:titleSortKey  "Die österreichische Zentralverwaltung 1,1 Abt. 1, Von Maximilian I. bis zur Vereinigung der Österreichischen und Böhmischen Hofkanzlei (1749) ; Bd. 1, Geschichtliche Übersicht" ;
+                             bf:mainTitle       "Die österreichische Zentralverwaltung" ;
+                             bf:partName        "Abt. 1, Von Maximilian I. bis zur Vereinigung der Österreichischen und Böhmischen Hofkanzlei (1749) ; Bd. 1, Geschichtliche Übersicht" ;
+                             bf:partNumber      "1,1"
+                           ] ;
+    ]
+.
+
+<http://example.org/BV003733157#Work773-27>
+        a                bf:Work ;
+        bf:hasInstance   <http://example.org/BV003733157#Instance773-27> ;
+        bf:identifiedBy  [ a          bf:Identifier ;
+                           rdf:value  "BV003733153" ;
+                           bf:source  [ a           bf:Source ;
+                                        rdfs:label  "DE-604"
+                                      ]
+                         ] .
+
+<http://example.org/BV003733157#Work830-28>
+        a                bf:Work ;
+        rdfs:label       "Kommission für Neuere Geschichte Österreichs: Veröffentlichungen der Kommission für Neuere Geschichte Österreichs" ;
+        bf:identifiedBy  [ a          bf:Identifier ;
+                           rdf:value  "BV000001532" ;
+                           bf:source  [ a           bf:Source ;
+                                        rdfs:label  "DE-604"
+                                      ]
+                         ] ;
+        bf:title         [ a                     bf:Title ;
+                           rdfs:label            "Kommission für Neuere Geschichte Österreichs: Veröffentlichungen der Kommission für Neuere Geschichte Österreichs" ;
+                           bflc:title30MarcKey   "830 0$aKommission für Neuere Geschichte Österreichs: Veröffentlichungen der Kommission für Neuere Geschichte Österreichs$v5$w(DE-604)BV000001532" ;
+                           bflc:title30MatchKey  "Kommission für Neuere Geschichte Österreichs: Veröffentlichungen der Kommission für Neuere Geschichte Österreichs" ;
+                           bflc:titleSortKey     "Kommission für Neuere Geschichte Österreichs: Veröffentlichungen der Kommission für Neuere Geschichte Österreichs" ;
+                           bf:mainTitle          "Kommission für Neuere Geschichte Österreichs: Veröffentlichungen der Kommission für Neuere Geschichte Österreichs"
+                         ] .
+
+<http://example.org/BV003733157#Agent700-12>
+        a                    bf:Person , bf:Agent ;
+        rdfs:label           "Fellner, Thomas 1852-1904" ;
+        bflc:name00MarcKey   "7001 $aFellner, Thomas$d1852-1904$0(DE-588)132483068$4edt" ;
+        bflc:name00MatchKey  "Fellner, Thomas 1852-1904" ;
+        bf:identifiedBy      [ a          bf:Identifier ;
+                               rdf:value  "132483068" ;
+                               bf:source  [ a           bf:Source ;
+                                            rdfs:label  "DE-588"
+                                          ]
+                             ] .
+
+<http://example.org/BV003733157#Agent700-13>
+        a                    bf:Person , bf:Agent ;
+        rdfs:label           "Kretschmayr, Heinrich 1870-1939" ;
+        bflc:name00MarcKey   "7001 $aKretschmayr, Heinrich$d1870-1939$eSonstige$0(DE-588)116525916$4oth" ;
+        bflc:name00MatchKey  "Kretschmayr, Heinrich 1870-1939" ;
+        bf:identifiedBy      [ a          bf:Identifier ;
+                               rdf:value  "116525916" ;
+                               bf:source  [ a           bf:Source ;
+                                            rdfs:label  "DE-588"
+                                          ]
+                             ] .
+
+<http://example.org/BV003733157#Agent700-14>
+        a                    bf:Person , bf:Agent ;
+        rdfs:label           "Walter, Friedrich 1896-1968" ;
+        bflc:name00MarcKey   "7001 $aWalter, Friedrich$d1896-1968$0(DE-588)128468955$4edt" ;
+        bflc:name00MatchKey  "Walter, Friedrich 1896-1968" ;
+        bf:identifiedBy      [ a          bf:Identifier ;
+                               rdf:value  "128468955" ;
+                               bf:source  [ a           bf:Source ;
+                                            rdfs:label  "DE-588"
+                                          ]
+                             ] .
+
+#instance
+<http://example.org/BV003733157#Instance>
+        a                              bf:Instance ;
+        rdfs:label                     "Die österreichische Zentralverwaltung 1,1 Abt. 1, Von Maximilian I. bis zur Vereinigung der Österreichischen und Böhmischen Hofkanzlei (1749) ; Bd. 1, Geschichtliche Übersicht" ;
+        bf:carrier                     <http://id.loc.gov/vocabulary/carriers/nc> ;
+        bf:extent                      [ a           bf:Extent ;
+                                         rdfs:label  "XII, 288 S."
+                                       ] ;
+        bf:hasSeries                   [ a                     bf:Instance ;
+                                         rdfs:label            "Kommission für Neuere Geschichte Österreichs: Veröffentlichungen der Kommission für Neuere Geschichte Österreichs" ;
+                                         bf:instanceOf         <http://example.org/BV003733157#Work830-28> ;
+                                         bf:seriesEnumeration  "5" ;
+                                         bf:seriesStatement    "Kommission für Neuere Geschichte Österreichs: Veröffentlichungen der Kommission für Neuere Geschichte Österreichs 5"
+                                       ] ;
+        bf:hasSeries                   [ a                     bf:Instance ;
+                                         rdfs:label            "Kommission für Neuere Geschichte Österreichs: Veröffentlichungen der Kommission für Neuere Geschichte Österreichs" ;
+                                         bf:seriesEnumeration  "..." ;
+                                         bf:seriesStatement    "Kommission für Neuere Geschichte Österreichs: Veröffentlichungen der Kommission für Neuere Geschichte Österreichs ..."
+                                       ] ;
+        bf:identifiedBy                [ a          bf:Local ;
+                                         rdf:value  "BVBBV003733157" ;
+                                         bf:source  [ a           bf:Source ;
+                                                      rdfs:label  "DE-599"
+                                                    ]
+                                       ] ;
+        bf:identifiedBy                [ a          bf:Local ;
+                                         rdf:value  "643371939" ;
+                                         bf:source  [ a           bf:Source ;
+                                                      rdfs:label  "OCoLC"
+                                                    ]
+                                       ] ;
+        bf:instanceOf                  <http://example.org/BV003733157#Work> ;
+        bf:issuance                    <http://id.loc.gov/vocabulary/issuance/mono> ;
+        bf:media                       <http://id.loc.gov/vocabulary/mediaTypes/n> ;
+        bf:provisionActivity           [ a         bf:Publication , bf:ProvisionActivity ;
+                                         bf:agent  [ a           bf:Agent ;
+                                                     rdfs:label  "Holzhausen"
+                                                   ] ;
+                                         bf:date   "1907" ;
+                                         bf:place  [ a           bf:Place ;
+                                                     rdfs:label  "Wien"
+                                                   ]
+                                       ] ;
+        bf:provisionActivity           [ a         bf:Publication , bf:ProvisionActivity ;
+                                         bf:date   "1907"^^<http://id.loc.gov/datatypes/edtf> ;
+                                         bf:place  <http://id.loc.gov/vocabulary/countries/>
+                                       ] ;
+        bf:provisionActivity           [ a         bf:Publication , bf:ProvisionActivity ;
+                                         bf:agent  [ a           bf:Agent ;
+                                                     rdfs:label  "Holzhausen"
+                                                   ] ;
+                                         bf:agent  [ a           bf:Agent ;
+                                                     rdfs:label  "Kraus Reprint"
+                                                   ] ;
+                                         bf:date   "1907" ;
+                                         bf:place  [ a           bf:Place ;
+                                                     rdfs:label  "Nendeln/Liechtenstein"
+                                                   ]
+                                       ] ;
+        bf:provisionActivityStatement  "Wien; Holzhausen; 1907" , "Nendeln/Liechtenstein; Kraus Reprint; Holzhausen; 1907" ;
+        bf:responsibilityStatement     "von Thomas Fellner. Nach dessen Tode bearb. und vollendet von Heinrich Kretschmayr" ;
+        bf:title                       [ a                  bf:Title ;
+                                         rdfs:label         "Die österreichische Zentralverwaltung 1,1 Abt. 1, Von Maximilian I. bis zur Vereinigung der Österreichischen und Böhmischen Hofkanzlei (1749) ; Bd. 1, Geschichtliche Übersicht" ;
+                                         bflc:titleSortKey  "Die österreichische Zentralverwaltung 1,1 Abt. 1, Von Maximilian I. bis zur Vereinigung der Österreichischen und Böhmischen Hofkanzlei (1749) ; Bd. 1, Geschichtliche Übersicht" ;
+                                         bf:mainTitle       "Die österreichische Zentralverwaltung" ;
+                                         bf:partName        "Abt. 1, Von Maximilian I. bis zur Vereinigung der Österreichischen und Böhmischen Hofkanzlei (1749) ; Bd. 1, Geschichtliche Übersicht" ;
+                                         bf:partNumber      "1,1"
+                                       ] .
+
+<http://example.org/BV003733157#Instance773-27>
+        a              bf:Instance ;
+        bf:instanceOf  <http://example.org/BV003733157#Work773-27> ;
+        bf:part        "1,1" .
+
+#item
+
+#################################################################
+#projspec
+<http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/projSpec>
+    a       <https://dhplus.sbg.ac.at/ontology#ProjectSpecific> ;
+.
+
+# Glaise-General-67-dhp.ttl
+
+
+#dhplus
+<http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004>
+    a   <https://dhplus.sbg.ac.at/ontology#E71_Human-Made_Thing> ;
+
+    <https://dhplus.sbg.ac.at/ontology#creator> "NN"^^xsd:string ;
+    <https://dhplus.sbg.ac.at/ontology#dateCreated> "0001-01-01T00:00:00"^^xsd:dateTime ;
+    <https://dhplus.sbg.ac.at/ontology#dateModified> "0001-01-01T00:00:00"^^xsd:dateTime ;
+    <https://dhplus.sbg.ac.at/ontology#datePublished> "0001-01-01T00:00:00"^^xsd:dateTime ;
+
+    <https://dhplus.sbg.ac.at/ontology#source>
+        <http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Bf-LoC> ,
+        <http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/projSpec> ;
+
+    <https://dhplus.sbg.ac.at/ontology#P1_is_identified_by> <http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Work> ;
+.
+#work
+<http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Work>
+    a <https://dhplus.sbg.ac.at/ontology#Work> ;
+
+    ##author, title - short
+    rdfs:label "Ein General im Zwielicht die Erinnerungen Edmund Glaises von Horstenau 1 K. u. k. Generalstabsoffizier und Historiker"^^xsd:string ;
+
+    ##adminMetadata
+    #MARC 001. 003, 016
+    <https://dhplus.sbg.ac.at/ontology#adminMetadata> [
+        a <https://dhplus.sbg.ac.at/ontology#AdminMetadata> ;
+        #ATTENTION: DNB uses 001 and 016, ALMA uses 035 (under instance)
+
+        #date and time of latest transaction
+        #MARC 005
+        <https://dhplus.sbg.ac.at/ontology#changeDate> "2018-04-16T13:59:09"^^xsd:dateTime ;
+        #date of creation
+        #MARC 008, character 0-5
+        <https://dhplus.sbg.ac.at/ontology#creationDate> "1994-10-24"^^xsd:date ;
+    ] ;
+
+    ##contribution
+    #MARC 100, 500, 700
+    <https://dhplus.sbg.ac.at/ontology#contribution> [
+        a <https://dhplus.sbg.ac.at/ontology#Contribution> ;
+        #Main Entry-Personal Name
+        #MARC 100
+        #OR
+        #General Note - Personenname (DNB)
+        #MARC 500
+        #ATTENTION: Record Control Number (GND) in 500 is not converted by LoC
+        #OR
+        #Added Entry-Personal Name
+        #MARC 700
+
+        #relation to dhplus:Person dataset
+        <https://dhplus.sbg.ac.at/ontology#agent> <Person-URI> ;
+        <https://dhplus.sbg.ac.at/ontology#agent> <http://d-nb.info/gnd/118539647> ;
+        <https://dhplus.sbg.ac.at/ontology#agent> <https://www.wikidata.org/wiki/Q112416> ;
+
+        #Relator term
+        #MARC $e
+        #author
+        <https://dhplus.sbg.ac.at/ontology#role> <http://id.loc.gov/vocabulary/relators/aut> ;
+    ] ;
+
+    ##title
+    #MARC 245
+    <https://dhplus.sbg.ac.at/ontology#title> [
+        a <https://dhplus.sbg.ac.at/ontology#Title> ;
+        #MARC summary of $afgknps
+        rdfs:label "Ein General im Zwielicht die Erinnerungen Edmund Glaises von Horstenau 1 K. u. k. Generalstabsoffizier und Historiker"^^xsd:string ;
+        #MARC $a
+        <https://dhplus.sbg.ac.at/ontology#mainTitle> "Ein General im Zwielicht"^^xsd:string ;
+        #MARC $b
+        <https://dhplus.sbg.ac.at/ontology#subtitle> "die Erinnerungen Edmund Glaises von Horstenau"^^xsd:string ;
+        #MARC $n
+        <https://dhplus.sbg.ac.at/ontology#partNumber> "1"^^xsd:string ;
+        #MARC $p
+        <https://dhplus.sbg.ac.at/ontology#partName> "K. u. k. Generalstabsoffizier und Historiker"^^xsd:string ;
+    ] ;
+
+    ##host item entry e.g. monography -> series
+    #MARC 773
+    <https://dhplus.sbg.ac.at/ontology#partOf> <http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Work773> ;
+
+    <https://dhplus.sbg.ac.at/ontology#hasInstance> <http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Instance> ;
+.
+
+#instance
+<http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Instance>
+    a   <https://dhplus.sbg.ac.at/ontology#Instance> ;
+
+    #adminMetadata
+
+    #Marc 035 used in ALMA
+    <https://dhplus.sbg.ac.at/ontology#identifiedBy> [
+        #number
+        a <https://dhplus.sbg.ac.at/ontology#Local> ;
+        rdf:value "AC00991416"^^xsd:string ;
+        <https://dhplus.sbg.ac.at/ontology#source> [
+            #ISIL e.g. AT-OBV
+            a <https://dhplus.sbg.ac.at/ontology#Source> ;
+            rdfs:label "AT-OBV"^^xsd:string ;
+        ] ;
+    ] ;
+
+    #title
+    #MARC 245
+    <https://dhplus.sbg.ac.at/ontology#title> [
+         a <https://dhplus.sbg.ac.at/ontology#Title> ;
+     #MARC summary of $afgknps
+         rdfs:label "Ein General im Zwielicht die Erinnerungen Edmund Glaises von Horstenau 1 K. u. k. Generalstabsoffizier und Historiker"^^xsd:string ;
+     #MARC $a
+         <https://dhplus.sbg.ac.at/ontology#mainTitle> "Ein General im Zwielicht"^^xsd:string ;
+     #MARC $b
+         <https://dhplus.sbg.ac.at/ontology#subtitle> "K. u. k. Generalstabsoffizier und Historiker"^^xsd:string ;
+     #MARC $n
+         <https://dhplus.sbg.ac.at/ontology#partNumber> "1"^^xsd:string ;
+     #MARC $p
+         <https://dhplus.sbg.ac.at/ontology#partName> "die Erinnerungen Edmund Glaises von Horstenau"^^xsd:string ;
+     ] ;
+
+    #Production, Publication, Distribution, Manufacture, and Copyright Notice
+    #MARC 264
+    <https://dhplus.sbg.ac.at/ontology#provisionActivity> [
+        a <https://dhplus.sbg.ac.at/ontology#ProvisionActivity>, <https://dhplus.sbg.ac.at/ontology#Publication> ;
+        #MARC $a
+        <https://dhplus.sbg.ac.at/ontology#place> [
+            #place of production
+            a <https://dhplus.sbg.ac.at/ontology#Place> ;
+            rdfs:label "Graz [u.a."^^xsd:string ;
+        ] ;
+        dhpluso:place  [
+            a           bf:Place ;
+            rdfs:label  "Wien"
+        ] ;
+        #MARC $b
+        <https://dhplus.sbg.ac.at/ontology#agent> [
+            #publisher
+            a <https://dhplus.sbg.ac.at/ontology#Agent> ;
+            rdfs:label "Böhlau"^^xsd:string ;
+        ] ;
+        #MARC $c
+        #date of production
+        <https://dhplus.sbg.ac.at/ontology#date> "1980"^^xsd:date ;
+    ] ;
+    #MARC 264 summary of $abc
+    <https://dhplus.sbg.ac.at/ontology#provisionActivityStatement> "Wien; Graz [u.a.]; Böhlau; 1980"^^xsd:string ;
+    #statement of responsibility
+    #MARC 245 $c
+    <https://dhplus.sbg.ac.at/ontology#responsibilityStatement> "eingel. und hrsg. von Peter Broucek"^^xsd:string ;
+
+    #extent
+    #MARC 300 $a
+    <https://dhplus.sbg.ac.at/ontology#extent> [
+        a dhpluso:Extent ;
+        rdfs:label "565 S."^^xsd:string ;
+    ] ;
+
+    #in series
+    #MARC 8xx
+    <https://dhplus.sbg.ac.at/ontology#hasSeries> <http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Instance8xx> ;
+
+    <https://dhplus.sbg.ac.at/ontology#instanceOf> <http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Work> ;
+    <https://dhplus.sbg.ac.at/ontology#hasItem> <http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Item> ;
+.
+
+##series-instance
+#MARC 8xx
+<http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Instance8xx>
+    a <https://dhplus.sbg.ac.at/ontology#Instance> ;
+    #series statement
+    #MARC $a
+    rdfs:label "Veröffentlichungen der Kommission für Neuere Geschichte Österreichs"^^xsd:string ;
+    #volume/sequential designation
+    #MARC $v
+    <https://dhplus.sbg.ac.at/ontology#seriesEnumeration> "67"^^xsd:string ;
+    #MARC summary of $av
+    <https://dhplus.sbg.ac.at/ontology#seriesStatement> "Veröffentlichungen der Kommission für Neuere Geschichte Österreichs 67"^^xsd:string ;
+
+    <https://dhplus.sbg.ac.at/ontology#instanceOf> <http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Work8xx> ;
+.
+
+#item
+<http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Item>
+    a   <https://dhplus.sbg.ac.at/ontology#Item> ;
+
+    <https://dhplus.sbg.ac.at/ontology#itemOf> <http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Instance> ;
+.
+
+#################################################################
+#MarcToBf-LoC
+<http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Bf-LoC>
+    a   <https://dhplus.sbg.ac.at/ontology#MarcToBf-LoC> ;
+    <https://dhplus.sbg.ac.at/ontology#hasPart> [
+#work
+        a                  bf:Text , bf:Work ;
+        rdfs:label         "<<Ein>> General im Zwielicht die Erinnerungen Edmund Glaises von Horstenau 1 K. u. k. Generalstabsoffizier und Historiker" ;
+        bf:adminMetadata   [ a                          bf:AdminMetadata ;
+                             bflc:encodingLevel         [ a        bflc:EncodingLevel ;
+                                                          bf:code  "f"
+                                                        ] ;
+                             bf:changeDate              "2018-04-16T13:59:09"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+                             bf:creationDate            "1994-10-24"^^<http://www.w3.org/2001/XMLSchema#date> ;
+                             bf:descriptionConventions  <http://id.loc.gov/vocabulary/descriptionConventions/rakddb> ;
+                             bf:descriptionConventions  [ a        bf:DescriptionConventions ;
+                                                          bf:code  "isbd"
+                                                        ] ;
+                             bf:descriptionLanguage     <http://id.loc.gov/vocabulary/languages/ger> ;
+                             bf:descriptionModifier     [ a           bf:Agent ;
+                                                          rdfs:label  "UBW"
+                                                        ] ;
+                             bf:generationProcess       [ a           bf:GenerationProcess ;
+                                                          rdfs:label  "DLC marc2bibframe2 v1.4.0-SNAPSHOT: 2021-01-26T10:46:24.614+01:00"
+                                                        ] ;
+                             bf:identifiedBy            [ a          bf:Local ;
+                                                          rdf:value  "990005981090203331"
+                                                        ] ;
+                             bf:source                  [ a           bf:Agent , bf:Source ;
+                                                          rdfs:label  "UBI"
+                                                        ] ;
+                             bf:status                  [ a        bf:Status ;
+                                                          bf:code  "n"
+                                                        ]
+                           ] ;
+        bf:classification  [ a                         bf:Classification ;
+                             bf:classificationPortion  "NQ 2160" ;
+                             bf:source                 [ a           bf:Source ;
+                                                         rdfs:label  "rvk"
+                                                       ]
+                           ] ;
+        bf:contribution    [ a         bf:Contribution ;
+                             bf:agent  <http://example.org/990005981090203331#Agent700-31> ;
+                             bf:role   <http://id.loc.gov/vocabulary/relators/edt>
+                           ] ;
+        bf:contribution    [ a         bflc:PrimaryContribution , bf:Contribution ;
+                             bf:agent  <http://example.org/990005981090203331#Agent100-17> ;
+                             bf:role   <http://id.loc.gov/vocabulary/relators/aut>
+                           ] ;
+        bf:hasInstance     <http://example.org/990005981090203331#Instance> ;
+        bf:language        <http://id.loc.gov/vocabulary/languages/ger> ;
+        bf:language        [ a                bf:Language ;
+                             bf:identifiedBy  [ a          bf:Identifier ;
+                                                rdf:value  <http://id.loc.gov/vocabulary/languages/ger> ;
+                                                bf:source  <http://id.loc.gov/vocabulary/languages>
+                                              ]
+                           ] ;
+        bf:partOf          <http://example.org/990005981090203331#Work773-32> ;
+        bf:title           [ a                  bf:Title ;
+                             rdfs:label         "<<Ein>> General im Zwielicht die Erinnerungen Edmund Glaises von Horstenau 1 K. u. k. Generalstabsoffizier und Historiker" ;
+                             bflc:titleSortKey  "<<Ein>> General im Zwielicht die Erinnerungen Edmund Glaises von Horstenau 1 K. u. k. Generalstabsoffizier und Historiker" ;
+                             bf:mainTitle       "<<Ein>> General im Zwielicht" ;
+                             bf:partName        "K. u. k. Generalstabsoffizier und Historiker" ;
+                             bf:partNumber      "1" ;
+                             bf:subtitle        "die Erinnerungen Edmund Glaises von Horstenau"
+                           ] ;
+
+    ]
+.
+
+<http://example.org/990005981090203331#Work773-32>
+        a                bf:Work ;
+        bf:hasInstance   <http://example.org/990005981090203331#Instance773-32> ;
+        bf:identifiedBy  [ a          bf:Identifier ;
+                           rdf:value  "AC00991399" ;
+                           bf:source  [ a           bf:Source ;
+                                        rdfs:label  "AT-OBV"
+                                      ]
+                         ] .
+
+<http://example.org/990005981090203331#Work830-33>
+        a                bf:Work ;
+        bf:identifiedBy  [ a          bf:Identifier ;
+                           rdf:value  "AC00112585" ;
+                           bf:source  [ a           bf:Source ;
+                                        rdfs:label  "AT-OBV"
+                                      ]
+                         ] ;
+        bf:title         [ a                    bf:Title ;
+                           bflc:title30MarcKey  "830 0$w(AT-OBV)AC00112585$v67$9O:1"
+                         ] .
+
+<http://example.org/990005981090203331#Agent100-17>
+        a                    bf:Person , bf:Agent ;
+        rdfs:label           "Glaise von Horstenau, Edmund 1882-1946" ;
+        bflc:name00MarcKey   "1001 $aGlaise von Horstenau, Edmund$d1882-1946$0(DE-588)118539647$4aut$9O:H" ;
+        bflc:name00MatchKey  "Glaise von Horstenau, Edmund 1882-1946" ;
+        bflc:primaryContributorName00MatchKey
+                "Glaise von Horstenau, Edmund 1882-1946" ;
+        bf:identifiedBy      [ a          bf:Identifier ;
+                               rdf:value  "118539647" ;
+                               bf:source  [ a           bf:Source ;
+                                            rdfs:label  "DE-588"
+                                          ]
+                             ] .
+
+<http://example.org/990005981090203331#Agent700-31>
+        a                    bf:Person , bf:Agent ;
+        rdfs:label           "Broucek, Peter 1938-" ;
+        bflc:name00MarcKey   "7001 $aBroucek, Peter$d1938-$0(DE-588)122604172$4edt$9O:H" ;
+        bflc:name00MatchKey  "Broucek, Peter 1938-" ;
+        bf:identifiedBy      [ a          bf:Identifier ;
+                               rdf:value  "122604172" ;
+                               bf:source  [ a           bf:Source ;
+                                            rdfs:label  "DE-588"
+                                          ]
+                             ] .
+
+#instance
+<http://example.org/990005981090203331#Instance>
+        a                              bf:Instance ;
+        rdfs:label                     "<<Ein>> General im Zwielicht die Erinnerungen Edmund Glaises von Horstenau 1 K. u. k. Generalstabsoffizier und Historiker" ;
+        bf:dimensions                  "24 cm" ;
+        bf:extent                      [ a           bf:Extent ;
+                                         rdfs:label  "565 S."
+                                       ] ;
+        bf:hasItem                     <http://example.org/990005981090203331#Item852-44> , <http://example.org/990005981090203331#Item852-47> , <http://example.org/990005981090203331#Item852-41> , <http://example.org/990005981090203331#Item852-36> , <http://example.org/990005981090203331#Item852-39> , <http://example.org/990005981090203331#Item852-46> , <http://example.org/990005981090203331#Item852-43> , <http://example.org/990005981090203331#Item852-40> , <http://example.org/990005981090203331#Item852-35> , <http://example.org/990005981090203331#Item852-38> , <http://example.org/990005981090203331#Item852-45> , <http://example.org/990005981090203331#Item852-42> , <http://example.org/990005981090203331#Item852-34> , <http://example.org/990005981090203331#Item852-37> ;
+        bf:hasSeries                   [ a                     bf:Instance ;
+                                         rdfs:label            "Veröffentlichungen der Kommission für Neuere Geschichte Österreichs" ;
+                                         bf:instanceOf         <http://example.org/990005981090203331#Work830-33> ;
+                                         bf:seriesEnumeration  "67" ;
+                                         bf:seriesStatement    "Veröffentlichungen der Kommission für Neuere Geschichte Österreichs 67"
+                                       ] ;
+        bf:identifiedBy                [ a          bf:Local ;
+                                         rdf:value  "OBVAC00991416" ;
+                                         bf:source  [ a           bf:Source ;
+                                                      rdfs:label  "DE-599"
+                                                    ]
+                                       ] ;
+        bf:identifiedBy                [ a          bf:Local ;
+                                         rdf:value  "000598109ACC01" ;
+                                         bf:source  [ a           bf:Source ;
+                                                      rdfs:label  "Aleph"
+                                                    ]
+                                       ] ;
+        bf:identifiedBy                [ a          bf:Nbn ;
+                                         rdf:value  "80,A48,0400" ;
+                                         bf:source  [ a           bf:Source ;
+                                                      rdfs:label  "dnb"
+                                                    ]
+                                       ] ;
+        bf:identifiedBy                [ a                    bf:Isbn ;
+                                         rdf:value            "3205087402" ;
+                                         bf:acquisitionTerms  "kart. : DM 148.00"
+                                       ] ;
+        bf:identifiedBy                [ a          bf:Local ;
+                                         rdf:value  "AC00991416"
+                                       ] ;
+        bf:identifiedBy                [ a          bf:Local ;
+                                         rdf:value  "AC00991416" ;
+                                         bf:source  [ a           bf:Source ;
+                                                      rdfs:label  "AT-OBV"
+                                                    ]
+                                       ] ;
+        bf:instanceOf                  <http://example.org/990005981090203331#Work> ;
+        bf:issuance                    <http://id.loc.gov/vocabulary/issuance/mono> ;
+        bf:note                        [ a            bf:Note ;
+                                         rdfs:label   "Ill." ;
+                                         bf:noteType  "Physical details"
+                                       ] ;
+        bf:note                        [ a           bf:Note ;
+                                         rdfs:label  "Bibliogr. E. Glaise von Horstenau S. 52 - 62"
+                                       ] ;
+        bf:place                       [ a          bf:Place ;
+                                         bf:code    "XA-AT" ;
+                                         bf:source  [ a           bf:Source ;
+                                                      rdfs:label  "ISO 3166"
+                                                    ]
+                                       ] ;
+        bf:place                       [ a          bf:Place ;
+                                         bf:code    "XA-DE" ;
+                                         bf:source  [ a           bf:Source ;
+                                                      rdfs:label  "ISO 3166"
+                                                    ]
+                                       ] ;
+        bf:provisionActivity           [ a         bf:Publication , bf:ProvisionActivity ;
+                                         bf:date   "1980/####"^^<http://id.loc.gov/datatypes/edtf> ;
+                                         bf:place  <http://id.loc.gov/vocabulary/countries/au%23>
+                                       ] ;
+        bf:provisionActivity           [ a         bf:Publication , bf:ProvisionActivity ;
+                                         bf:agent  [ a           bf:Agent ;
+                                                     rdfs:label  "Böhlau"
+                                                   ] ;
+                                         bf:date   "1980" ;
+                                         bf:place  [ a           bf:Place ;
+                                                     rdfs:label  "Graz [u.a."
+                                                   ] ;
+                                         bf:place  [ a           bf:Place ;
+                                                     rdfs:label  "Wien"
+                                                   ]
+                                       ] ;
+        bf:provisionActivityStatement  "Wien; Graz [u.a.]; Böhlau; 1980" ;
+        bf:responsibilityStatement     "eingel. und hrsg. von Peter Broucek" ;
+        bf:title                       [ a                  bf:VariantTitle , bf:Title ;
+                                         rdfs:label         "Kaiserlich und königlicher Generalstabsoffizier und Historiker" ;
+                                         bflc:titleSortKey  "Kaiserlich und königlicher Generalstabsoffizier und Historiker" ;
+                                         bf:mainTitle       "Kaiserlich und königlicher Generalstabsoffizier und Historiker"
+                                       ] ;
+        bf:title                       [ a                  bf:Title ;
+                                         rdfs:label         "<<Ein>> General im Zwielicht die Erinnerungen Edmund Glaises von Horstenau 1 K. u. k. Generalstabsoffizier und Historiker" ;
+                                         bflc:titleSortKey  "<<Ein>> General im Zwielicht die Erinnerungen Edmund Glaises von Horstenau 1 K. u. k. Generalstabsoffizier und Historiker" ;
+                                         bf:mainTitle       "<<Ein>> General im Zwielicht" ;
+                                         bf:partName        "K. u. k. Generalstabsoffizier und Historiker" ;
+                                         bf:partNumber      "1" ;
+                                         bf:subtitle        "die Erinnerungen Edmund Glaises von Horstenau"
+                                       ] .
+
+<http://example.org/990005981090203331#Instance773-32>
+        a              bf:Instance ;
+        bf:instanceOf  <http://example.org/990005981090203331#Work773-32> .
+
+#item
+
+#################################################################
+#projspec
+<http://dhplus.sbg.ac.at/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/projSpec>
+    a       <https://dhplus.sbg.ac.at/ontology#ProjectSpecific> ;
+.
+
+
+# scharr-religionsfonds-119-dhp.ttl
+
+
+#dhplus
+<http://dhplus.sbg.ac.at/kngoe/instance/17728dbc-bc9c-11ea-b3de-0242ac130004>
+  a   <https://dhplus.sbg.ac.at/ontology#E71_Human-Made_Thing> ;
+
+  <https://dhplus.sbg.ac.at/ontology#creator> "NN"^^xsd:string ;
+  <https://dhplus.sbg.ac.at/ontology#dateCreated> "0001-01-01T00:00:00"^^xsd:dateTime ;
+  <https://dhplus.sbg.ac.at/ontology#dateModified> "0001-01-01T00:00:00"^^xsd:dateTime ;
+  <https://dhplus.sbg.ac.at/ontology#datePublished> "0001-01-01T00:00:00"^^xsd:dateTime ;
+
+  <https://dhplus.sbg.ac.at/ontology#source>
+        <http://dhplus.sbg.ac.at/kngoe/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Bf-LoC> ,
+        <http://dhplus.sbg.ac.at/kngoe/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/projSpec> ;
+
+  <https://dhplus.sbg.ac.at/ontology#P1_is_identified_by> <http://dhplus.sbg.ac.at/kngoe/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Work> ;
+.
+#work
+<http://dhplus.sbg.ac.at/kngoe/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Work>
+  a <https://dhplus.sbg.ac.at/ontology#Work> ;
+
+##author, title - short
+  rdfs:label "Der griechisch-orientalische Religionsfonds der Bukowina 1783-1949 Kontinuitäten und Brüche einer prägenden Institution des Josephinismus"^^xsd:string ;
+
+##adminMetadata
+#MARC 001. 003, 016
+  <https://dhplus.sbg.ac.at/ontology#adminMetadata> [
+        a <https://dhplus.sbg.ac.at/ontology#AdminMetadata> ;
+      #date and time of latest transaction
+      #MARC 005
+        <https://dhplus.sbg.ac.at/ontology#changeDate> "2020-08-26T11:53:18"^^xsd:dateTime ;
+      #date of creation
+      #MARC 008, character 0-5
+        <https://dhplus.sbg.ac.at/ontology#creationDate> "2019-10-02"^^xsd:date ;
+  ] ;
+
+##contribution
+#MARC 100, 500, 700
+  <https://dhplus.sbg.ac.at/ontology#contribution> [
+      a <https://dhplus.sbg.ac.at/ontology#Contribution>;
+
+      #relation to dhplus:Person dataset
+      <https://dhplus.sbg.ac.at/ontology#agent> <Person-URI> ;
+      <https://dhplus.sbg.ac.at/ontology#agent> <http://d-nb.info/gnd/123191254> ;
+      <https://dhplus.sbg.ac.at/ontology#agent> <https://www.wikidata.org/wiki/Q98555088> ;
+
+      #Relator term
+      #MARC $e
+      #author
+      <https://dhplus.sbg.ac.at/ontology#role> <http://id.loc.gov/vocabulary/relators/aut> ;
+  ] ;
+
+##title
+#MARC 245
+  <https://dhplus.sbg.ac.at/ontology#title> [
+      a <https://dhplus.sbg.ac.at/ontology#Title> ;
+    #MARC summary of $afgknps
+      rdfs:label "Der griechisch-orientalische Religionsfonds der Bukowina 1783-1949 Kontinuitäten und Brüche einer prägenden Institution des Josephinismus"^^xsd:string ;
+    #MARC $a
+      <https://dhplus.sbg.ac.at/ontology#mainTitle> "Der griechisch-orientalische Religionsfonds der Bukowina 1783-1949"^^xsd:string ;
+    #MARC $b
+      <https://dhplus.sbg.ac.at/ontology#subtitle> "Kontinuitäten und Brüche einer prägenden Institution des Josephinismus"^^xsd:string ;
+  ] ;
+
+  <https://dhplus.sbg.ac.at/ontology#hasInstance> <http://dhplus.sbg.ac.at/kngoe/instance/d1aa77a2-3ea7-11eb-b378-0242ac130002/Instance> ;
+.
+
+#instance
+<http://dhplus.sbg.ac.at/kngoe/instance/d1aa77a2-3ea7-11eb-b378-0242ac130002/Instance>
+    a   <https://dhplus.sbg.ac.at/ontology#Instance> ;
+
+    ##author, title - short
+    rdfs:label "Der griechisch-orientalische Religionsfonds der Bukowina 1783-1949 Kontinuitäten und Brüche einer prägenden Institution des Josephinismus" ;
+
+#adminMetadata
+#Marc 035 used in ALMA
+    <https://dhplus.sbg.ac.at/ontology#identifiedBy> [
+         #number
+         a <https://dhplus.sbg.ac.at/ontology#Local> ;
+         rdf:value "AC15600618"^^xsd:string ;
+         <https://dhplus.sbg.ac.at/ontology#source> [
+        #ISIL e.g. AT-OBV
+          a <https://dhplus.sbg.ac.at/ontology#Source> ;
+          rdfs:label "AT-OBV"^^xsd:string ;
+        ] ;
+    ] ;
+
+#title
+#MARC 245
+    <https://dhplus.sbg.ac.at/ontology#title> [
+          a <https://dhplus.sbg.ac.at/ontology#Title> ;
+        #MARC summary of $afgknps
+          rdfs:label "Der griechisch-orientalische Religionsfonds der Bukowina 1783-1949 Kontinuitäten und Brüche einer prägenden Institution des Josephinismus"^^xsd:string ;
+        #MARC $a
+          <https://dhplus.sbg.ac.at/ontology#mainTitle> "Der griechisch-orientalische Religionsfonds der Bukowina 1783-1949"^^xsd:string ;
+        #MARC $b
+          <https://dhplus.sbg.ac.at/ontology#subtitle> "Kontinuitäten und Brüche einer prägenden Institution des Josephinismus"^^xsd:string ;
+    ] ;
+
+#Production, Publication, Distribution, Manufacture, and Copyright Notice
+#MARC 264
+    <https://dhplus.sbg.ac.at/ontology#provisionActivity> [
+          a <https://dhplus.sbg.ac.at/ontology#ProvisionActivity>, <https://dhplus.sbg.ac.at/ontology#Publication> ;
+        #MARC $a
+          <https://dhplus.sbg.ac.at/ontology#place>
+                #place of production
+            [
+                a dhpluso:Place ;
+                rdfs:label "Wien"
+            ], [
+                a dhpluso:Place ;
+                rdfs:label "Köln"
+            ], [
+                a dhpluso:Place ;
+                rdfs:label "Weimar"
+            ] ;
+        #MARC $b
+          <https://dhplus.sbg.ac.at/ontology#agent> [
+            #publisher
+              a <https://dhplus.sbg.ac.at/ontology#Agent> ;
+              rdfs:label "Böhlau Verlag"^^xsd:string ;
+            ] ;
+        #MARC $c
+        #date of production
+          <https://dhplus.sbg.ac.at/ontology#date> "2020"^^xsd:date ;
+    ] ;
+#MARC 264 summary of $abc
+    <https://dhplus.sbg.ac.at/ontology#provisionActivityStatement> "Wien; Köln; Weimar; Böhlau Verlag; [2020]"^^xsd:string ;
+#statement of responsibility
+#MARC 245 $c
+    <https://dhplus.sbg.ac.at/ontology#responsibilityStatement> "Kurt Scharr"^^xsd:string ;
+#extent
+#MARC 300 $a
+    <https://dhplus.sbg.ac.at/ontology#extent> [
+        a dhpluso:Extent ;
+        rdfs:label "444 Seiten"^^xsd:string ;
+    ] ;
+
+#in series
+#MARC 8xx
+  <https://dhplus.sbg.ac.at/ontology#hasSeries> <http://dhplus.sbg.ac.at/kngoe/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Instance8xx> ;
+
+  <https://dhplus.sbg.ac.at/ontology#instanceOf> <http://dhplus.sbg.ac.at/kngoe/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Work> ;
+  <https://dhplus.sbg.ac.at/ontology#hasItem> <http://dhplus.sbg.ac.at/kngoe/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Item> ;
+.
+##series-instance
+#MARC 8xx
+<http://dhplus.sbg.ac.at/kngoe/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Instance8xx>
+  a <https://dhplus.sbg.ac.at/ontology#Instance> ;
+#series statement
+#MARC $a
+  rdfs:label "Veröffentlichungen der Kommission für Neuere Geschichte Österreichs"^^xsd:string ;
+#volume/sequential designation
+#MARC $v
+  <https://dhplus.sbg.ac.at/ontology#seriesEnumeration> "119"^^xsd:string ;
+#MARC summary of $av
+  <https://dhplus.sbg.ac.at/ontology#seriesStatement> "Veröffentlichungen der Kommission für Neuere Geschichte Österreichs Band 119"^^xsd:string ;
+
+  <https://dhplus.sbg.ac.at/ontology#instanceOf> <http://dhplus.sbg.ac.at/kngoe/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Work8xx> ;
+.
+##additional physical form entry-instance
+#MARC 776
+<http://dhplus.sbg.ac.at/kngoe/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Instance776>
+  a <https://dhplus.sbg.ac.at/ontology#Instance> ;
+  dhpluso:note [
+    a dhpluso:Note ;
+    rdfs:label "Online-Ausgabe"
+  ] ;
+  dhpluso:identifiedBy [
+    a dhpluso:Isbn ;
+    rdf:value "9783205209270"
+  ] ;
+  dhpluso:instanceOf <http://dhplus.sbg.ac.at/kngoe/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Work>
+.
+
+
+#################################################################
+#MarcToBf-LoC
+<http://dhplus.sbg.ac.at/kngoe/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/Bf-LoC>
+    a   <https://dhplus.sbg.ac.at/ontology#MarcToBf-LoC> ;
+    <https://dhplus.sbg.ac.at/ontology#hasPart>
+    #work
+      [
+        a <http://id.loc.gov/ontologies/bibframe/Work>, <http://id.loc.gov/ontologies/bibframe/Text> ;
+        bf:adminMetadata [
+          a bf:AdminMetadata ;
+          bf:generationProcess [
+            a bf:GenerationProcess ;
+            rdfs:label "DLC marc2bibframe2 v1.4.0-SNAPSHOT: 2020-10-20T18:30:51.222+02:00"
+          ] ;
+          bf:status [
+            a bf:Status ;
+            bf:code "n"
+          ] ;
+          bflc:encodingLevel [
+            a bflc:EncodingLevel ;
+            bf:code "f"
+          ] ;
+          bf:descriptionConventions [
+            a bf:DescriptionConventions ;
+            bf:code "isbd"
+          ], <http://id.loc.gov/vocabulary/descriptionConventions/rda> ;
+          bf:identifiedBy [
+            a bf:Local ;
+            rdf:value "99145297814903331"
+          ], [
+            a bf:Local ;
+            rdf:value "1196222940" ;
+            bf:source [
+              a bf:Source ;
+              rdfs:label "DE-101"
+            ]
+          ] ;
+          bf:changeDate "2020-08-26T11:53:18"^^xsd:dateTime ;
+          bf:creationDate "2019-10-02"^^xsd:date ;
+          bf:source [
+            a bf:Source, bf:Agent ;
+            rdfs:label "AT-OeNB"
+          ], [
+            a bf:Source, bf:Agent ;
+            rdfs:label "DE-101"
+          ] ;
+          bf:descriptionLanguage <http://id.loc.gov/vocabulary/languages/ger> ;
+          bf:descriptionModifier [
+            a bf:Agent ;
+            rdfs:label "AT-OBV"
+          ]
+        ] ;
+        bf:language <http://id.loc.gov/vocabulary/languages/ger>, [
+          a bf:Language ;
+          bf:identifiedBy [
+            a bf:Identifier ;
+            rdf:value <http://id.loc.gov/vocabulary/languages/ger> ;
+            bf:source <http://id.loc.gov/vocabulary/languages>
+          ]
+        ], [
+          a bf:Language ;
+          bf:note [
+            a bf:Note ;
+            rdfs:label "Zusammenfassung deutsch, englisch, rumänisch und ukrainisch"
+          ]
+        ] ;
+        bf:classification [
+          a bf:ClassificationDdc ;
+          bf:classificationPortion "344.498409609" ;
+          bf:edition "23/ger", "full" ;
+          bf:source [
+            a bf:Source ;
+            rdfs:label "DE-101"
+          ]
+        ], [
+          a bf:Classification ;
+          bf:classificationPortion "15.60" ;
+          bf:source [
+            a bf:Source ;
+            rdfs:label "bkl"
+          ]
+        ], [
+          a bf:Classification ;
+          bf:classificationPortion "15.70" ;
+          bf:source [
+            a bf:Source ;
+            rdfs:label "bkl"
+          ]
+        ], [
+          a bf:Classification ;
+          bf:classificationPortion "11.57" ;
+          bf:source [
+            a bf:Source ;
+            rdfs:label "bkl"
+          ]
+        ], [
+          a bf:Classification ;
+          bf:classificationPortion "340" ;
+          bf:adminMetadata [
+            a bf:AdminMetadata ;
+            bf:assigner [
+              a bf:Agent ;
+              rdfs:label "DE-101"
+            ]
+          ] ;
+          bf:source [
+            a bf:Source ;
+            rdfs:label "sdnb"
+          ]
+        ], [
+          a bf:Classification ;
+          bf:classificationPortion "940" ;
+          bf:adminMetadata [
+            a bf:AdminMetadata ;
+            bf:assigner [
+              a bf:Agent ;
+              rdfs:label "DE-101"
+            ]
+          ] ;
+          bf:source [
+            a bf:Source ;
+            rdfs:label "sdnb"
+          ]
+        ], [
+          a bf:Classification ;
+          bf:classificationPortion "230" ;
+          bf:adminMetadata [
+            a bf:AdminMetadata ;
+            bf:assigner [
+              a bf:Agent ;
+              rdfs:label "DE-101"
+            ]
+          ] ;
+          bf:source [
+            a bf:Source ;
+            rdfs:label "sdnb"
+          ]
+        ] ;
+        bf:contribution [
+          a bf:Contribution, bflc:PrimaryContribution ;
+          bf:agent <http://example.org/99145297814903331#Agent100-24> ;
+          bf:role <http://id.loc.gov/vocabulary/relators/aut>
+        ], [
+          a bf:Contribution ;
+          bf:agent <http://example.org/99145297814903331#Agent710-48> ;
+          bf:role <http://id.loc.gov/vocabulary/relators/pbl>
+        ] ;
+        rdfs:label "<<Der>> griechisch-orientalische Religionsfonds der Bukowina 1783-1949 Kontinuitäten und Brüche einer prägenden Institution des Josephinismus" ;
+        bf:title [
+          a bf:Title ;
+          rdfs:label "<<Der>> griechisch-orientalische Religionsfonds der Bukowina 1783-1949 Kontinuitäten und Brüche einer prägenden Institution des Josephinismus" ;
+          bflc:titleSortKey "<<Der>> griechisch-orientalische Religionsfonds der Bukowina 1783-1949 Kontinuitäten und Brüche einer prägenden Institution des Josephinismus" ;
+          bf:mainTitle "<<Der>> griechisch-orientalische Religionsfonds der Bukowina 1783-1949" ;
+          bf:subtitle "Kontinuitäten und Brüche einer prägenden Institution des Josephinismus"
+        ] ;
+        bf:content <http://id.loc.gov/vocabulary/contentTypes/txt> ;
+        bf:subject [
+          a bf:Topic ;
+          rdfs:label "Bukowina"
+        ], [
+          a bf:Topic ;
+          rdfs:label "Josephinismus"
+        ], [
+          a bf:Topic ;
+          rdfs:label "Klostergüter"
+        ], [
+          a bf:Topic ;
+          rdfs:label "Eugen Hackmann"
+        ], [
+          a bf:Topic ;
+          rdfs:label "Silvester Morariu-Andriewicz"
+        ], [
+          a bf:Topic ;
+          rdfs:label "Arkadius Czuperkowicz"
+        ], [
+          a bf:Topic ;
+          rdfs:label "Wladimir v. Repta"
+        ], [
+          a bf:Topic ;
+          rdfs:label "Nationalisierung"
+        ], [
+          a bf:Topic ;
+          rdfs:label "rumänische Kirche"
+        ], [
+          a bf:Topic ;
+          rdfs:label "Joseph II"
+        ], [
+          a bf:Topic ;
+          rdfs:label "Hardcover, Softcover / Geschichte"
+        ] ;
+        bf:hasInstance <http://example.org/99145297814903331#Instance776-49>, <http://example.org/99145297814903331#Instance>
+  ]
+.
+
+<http://id.loc.gov/vocabulary/languages/ger> a bf:Language .
+<http://example.org/99145297814903331#Agent100-24>
+  a bf:Agent, bf:Person ;
+  bflc:name00MatchKey "Scharr, Kurt 1970-" ;
+  bflc:primaryContributorName00MatchKey "Scharr, Kurt 1970-" ;
+  bflc:name00MarcKey "1001 $aScharr, Kurt$d1970-$0(DE-588)123191254$4aut" ;
+  rdfs:label "Scharr, Kurt 1970-" ;
+  bf:identifiedBy [
+    a bf:Identifier ;
+    rdf:value "123191254" ;
+    bf:source [
+      a bf:Source ;
+      rdfs:label "DE-588"
+    ]
+  ] .
+
+<http://example.org/99145297814903331#Agent710-48>
+  a bf:Agent, bf:Organization ;
+  bflc:name10MatchKey "Böhlau Verlag GmbH & Co. KG" ;
+  bflc:name10MarcKey "7102 $aBöhlau Verlag GmbH & Co. KG$0(DE-588)1065536941$4pbl" ;
+  rdfs:label "Böhlau Verlag GmbH & Co. KG" ;
+  bf:identifiedBy [
+    a bf:Identifier ;
+    rdf:value "1065536941" ;
+    bf:source [
+      a bf:Source ;
+      rdfs:label "DE-588"
+    ]
+  ] .
+
+<http://example.org/99145297814903331#Instance776-49>
+  a bf:Instance ;
+  bflc:relationship [
+    a bflc:Relationship ;
+    bflc:relation [
+      a bflc:Relation ;
+      rdfs:label "Erscheint auch als"
+    ] ;
+    bf:relatedTo <http://example.org/99145297814903331#Instance>
+  ] ;
+  bf:note [
+    a bf:Note ;
+    rdfs:label "Online-Ausgabe"
+  ] ;
+  bf:identifiedBy [
+    a bf:Isbn ;
+    rdf:value "9783205209270"
+  ] ;
+  bf:instanceOf <http://example.org/99145297814903331#Work> .
+
+<http://example.org/99145297814903331#Instance>
+  a bf:Instance ;
+  bf:issuance <http://id.loc.gov/vocabulary/issuance/mono> ;
+  bf:provisionActivity [
+    a bf:ProvisionActivity, bf:Publication ;
+    bf:date "2020"^^blcdf:edtf
+  ], [
+    a bf:ProvisionActivity, bf:Publication ;
+    bf:place [
+      a bf:Place ;
+      rdfs:label "Wien"
+    ], [
+      a bf:Place ;
+      rdfs:label "Köln"
+    ], [
+      a bf:Place ;
+      rdfs:label "Weimar"
+    ] ;
+    bf:agent [
+      a bf:Agent ;
+      rdfs:label "Böhlau Verlag"
+    ] ;
+    bf:date "2020"
+  ] ;
+  bf:supplementaryContent [
+    a bf:SupplementaryContent ;
+    rdfs:label "Index present"
+  ], [
+    a rdfs:Resource ;
+    bflc:locator <https://d-nb.info/1196222940/04> ;
+    bf:note [
+      a bf:Note ;
+      rdfs:label "Inhaltsverzeichnis"
+    ]
+  ] ;
+  bf:identifiedBy [
+    a bf:Nbn ;
+    rdf:value "OeB2020,A,14 943.6,940,230" ;
+    bf:source [
+      a bf:Source ;
+      rdfs:label "oeb"
+    ]
+  ], [
+    a bf:Nbn ;
+    rdf:value "20,A38" ;
+    bf:source [
+      a bf:Source ;
+      rdfs:label "dnb"
+    ]
+  ], [
+    a bf:Nbn ;
+    rdf:value "19,N41" ;
+    bf:status [
+      a bf:Status ;
+      rdfs:label "invalid"
+    ] ;
+    bf:source [
+      a bf:Source ;
+      rdfs:label "dnb"
+    ]
+  ], [
+    a bf:Isbn ;
+    rdf:value "9783205209263" ;
+    bf:acquisitionTerms "EUR 67,00 ; EUR 65,00 (DE)" ;
+    bf:qualifier "Festeinband"
+  ], [
+    a bf:Local ;
+    rdf:value "AC15600618" ;
+    bf:source [
+      a bf:Source ;
+      rdfs:label "AT-OBV"
+    ]
+  ], [
+    a bf:Local ;
+    rdf:value "DNB1196222940" ;
+    bf:source [
+      a bf:Source ;
+      rdfs:label "DE-599"
+    ]
+  ], [
+    a bf:Local ;
+    rdf:value "1122748065" ;
+    bf:source [
+      a bf:Source ;
+      rdfs:label "OCoLC"
+    ]
+  ], [
+    a bf:Local ;
+    rdf:value "1196222940" ;
+    bf:source [
+      a bf:Source ;
+      rdfs:label "DE-101"
+    ]
+  ], [
+    a bf:Local ;
+    rdf:value "oai:dnb.de/dnb/1196222940"
+  ] ;
+  bf:place [
+    a bf:Place ;
+    bf:code "XA-AT" ;
+    bf:source [
+      a bf:Source ;
+      rdfs:label "ISO 3166"
+    ]
+  ], [
+    a bf:Place ;
+    bf:code "XA-DE" ;
+    bf:source [
+      a bf:Source ;
+      rdfs:label "ISO 3166"
+    ]
+  ] ;
+  rdfs:label "<<Der>> griechisch-orientalische Religionsfonds der Bukowina 1783-1949 Kontinuitäten und Brüche einer prägenden Institution des Josephinismus" ;
+  bf:title [
+    a bf:Title ;
+    rdfs:label "<<Der>> griechisch-orientalische Religionsfonds der Bukowina 1783-1949 Kontinuitäten und Brüche einer prägenden Institution des Josephinismus" ;
+    bflc:titleSortKey "<<Der>> griechisch-orientalische Religionsfonds der Bukowina 1783-1949 Kontinuitäten und Brüche einer prägenden Institution des Josephinismus" ;
+    bf:mainTitle "<<Der>> griechisch-orientalische Religionsfonds der Bukowina 1783-1949" ;
+    bf:subtitle "Kontinuitäten und Brüche einer prägenden Institution des Josephinismus"
+  ] ;
+  bf:responsibilityStatement "Kurt Scharr" ;
+  bf:provisionActivityStatement "Wien; Köln; Weimar; Böhlau Verlag; [2020]" ;
+  bf:extent [
+    a bf:Extent ;
+    rdfs:label "444 Seiten"
+  ] ;
+  bf:note [
+    a bf:Note ;
+    bf:noteType "Physical details" ;
+    rdfs:label "Illustrationen, Diagramme, Karten"
+  ], [
+    a bf:Note ;
+    rdfs:label "Literaturverzeichnis: Seite [381]-432"
+  ] ;
+  bf:dimensions "25 cm" ;
+  bf:media <http://id.loc.gov/vocabulary/mediaTypes/n> ;
+  bf:carrier <http://id.loc.gov/vocabulary/carriers/nc> ;
+  bf:otherPhysicalFormat <http://example.org/99145297814903331#Instance776-49> ;
+  bf:hasSeries [
+    a bf:Instance ;
+    rdfs:label "Veröffentlichungen der Kommission für Neuere Geschichte Österreichs" ;
+    bf:seriesStatement "Veröffentlichungen der Kommission für Neuere Geschichte Österreichs Band 119" ;
+    bf:seriesEnumeration "119" ;
+    bf:instanceOf <http://example.org/99145297814903331#Work830-50>
+  ] ;
+  bf:instanceOf <http://example.org/99145297814903331#Work> ;
+  bf:hasItem <http://example.org/99145297814903331#Item852-52>, <http://example.org/99145297814903331#Item852-53>, <http://example.org/99145297814903331#Item852-54>, <http://example.org/99145297814903331#Item852-55>, <http://example.org/99145297814903331#Item852-56>, <http://example.org/99145297814903331#Item852-57>, <http://example.org/99145297814903331#Item852-58> .
+
+<http://example.org/99145297814903331#Work830-50>
+  a bf:Work ;
+  bf:title [
+    a bf:Title ;
+    bflc:title30MarcKey "830 0$w(AT-OBV)AC00112585$v119$9O:1"
+  ] ;
+  bf:identifiedBy [
+    a bf:Identifier ;
+    rdf:value "AC00112585" ;
+    bf:source [
+      a bf:Source ;
+      rdfs:label "AT-OBV"
+    ]
+  ] .
+
+
+#################################################################
+#projspec
+<http://dhplus.sbg.ac.at/kngoe/instance/17728dbc-bc9c-11ea-b3de-0242ac130004/projSpec>
+  a       <https://dhplus.sbg.ac.at/ontology#ProjectSpecific> ;
+.
+

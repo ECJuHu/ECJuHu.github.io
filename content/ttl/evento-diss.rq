@@ -1,0 +1,49 @@
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dhpluso: <https://dhplus.sbg.ac.at/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX kngoei: <http://dhplus.sbg.ac.at/kngoe/instance/> 
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX schema: <https://schema.org/>
+
+select DISTINCT ?s ?item ?date ?title ?text ?pic ?url
+where { 
+	?s a dhpluso:Event ;
+    	owl:sameAs ?item ;
+     
+    	dhpluso:P1_is_identified_by ?_date ;
+     	dhpluso:P1_is_identified_by ?_title ;
+      	dhpluso:P67i_is_referred_to_by ?_text ;
+       	dhpluso:P67i_is_referred_to_by ?_pic ;            
+     	.
+        ?_date a dhpluso:E50_Date ;
+        	   rdfs:label "date" ;
+			   #WP Format RFC 1123
+			   #convert to ISO 8601 (xsd:date) in JS with https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
+			   dhpluso:P585 ?date ;
+    	.
+        ?_title a dhpluso:E35_Title ;
+            	rdfs:label "title" ;
+				rdf:value ?title ;
+		.
+    	?_text 	a dhpluso:E31_Document ;
+        		rdfs:label "text" ;
+				rdf:value ?text ;
+    			dhpluso:P67_refers_to ?_link ;
+    	.
+    	OPTIONAL { ?_pic a dhpluso:E38_Image ;
+        	  			 rdfs:label "pictureref" ;
+						 rdf:value ?pic ;
+    	. }
+    	OPTIONAL { ?_link 	a dhpluso:URL ;
+               	rdfs:label "morelink" ;
+				schema:url ?url ;
+    	. }
+    
+    FILTER ( STRSTARTS(STR(?s), "http://dhplus.sbg.ac.at/kngoe/instance/") ) .
+    FILTER ( !STRSTARTS(STR(?item), "http://dhplus.sbg.ac.at/kngoe/instance/") ) .
+} 
+
+
+

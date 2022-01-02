@@ -1,0 +1,191 @@
+
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix wdrs: <http://www.w3.org/2007/05/powder-s#> .
+@prefix gndo: <http://d-nb.info/standards/elementset/gnd#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wikibase: <http://wikiba.se/ontology#Statement> .
+@prefix p: <http://www.wikidata.org/prop/> .
+@prefix pq: <http://www.wikidata.org/prop/qualifier/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix schema: <http://schema.org/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dhpluso: <https://dhplus.sbg.ac.at/ontology#> .
+@prefix dhplusi: <http://dhplus.sbg.ac.at/instance/> .
+
+#dhplus
+<http://dhplus.sbg.ac.at/instance/828f9830-91b1-11ea-bb37-0242ac130002>
+    a   <https://dhplus.sbg.ac.at/ontology#E21_Person> ;
+##administrative
+    <https://dhplus.sbg.ac.at/ontology#creator> "NN"^^xsd:string ;
+    #OR
+    <https://dhplus.sbg.ac.at/ontology#creator> <URI> ;
+    <https://dhplus.sbg.ac.at/ontology#dateCreated> "0001-01-01T00:00:00"^^xsd:dateTime ;
+    <https://dhplus.sbg.ac.at/ontology#dateModified> "0001-01-01T00:00:00"^^xsd:dateTime ;
+    <https://dhplus.sbg.ac.at/ontology#datePublished> "0001-01-01T00:00:00"^^xsd:dateTime ;
+    #relation
+    owl:sameAs <http://viaf.org/viaf/00000000> ;
+    owl:sameAs <https://orcid.org/0000-0000-0000-0000> ;
+
+##birth
+    <https://dhplus.sbg.ac.at/ontology#P98i_was_born> <http://dhplus.sbg.ac.at/instance/126b6a72-eebb-11ea-adc1-0242ac120002> ;
+##death
+    <https://dhplus.sbg.ac.at/ontology#P100i_died_in> <http://dhplus.sbg.ac.at/instance/3536ba8e-eebb-11ea-adc1-0242ac120002> ;
+
+    <https://dhplus.sbg.ac.at/ontology#source>
+        <http://dhplus.sbg.ac.at/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local> ,
+        <http://dhplus.sbg.ac.at/instance/828f9830-91b1-11ea-bb37-0242ac130002/wikiData-local> ,
+        <http://dhplus.sbg.ac.at/instance/828f9830-91b1-11ea-bb37-0242ac130002/projSpec> ;
+
+    #name
+    dhpluso:P1_is_identified_by [
+        a <https://dhplus.sbg.ac.at/ontology#NameOfThePerson> ;
+        rdfs:label  "NN"@en , "NN"@de ;
+
+        <https://dhplus.sbg.ac.at/ontology#preferredNameForThePerson> "Scharr, Kurt"^^xsd:string ;
+        <https://dhplus.sbg.ac.at/ontology#variantNameForThePerson> "NN"^^xsd:string ;
+
+        <https://dhplus.sbg.ac.at/ontology#forename> "Kurt"^^xsd:string ;
+        <https://dhplus.sbg.ac.at/ontology#prefix> "NN"^^xsd:string ;
+        <https://dhplus.sbg.ac.at/ontology#surname> "Scharr"^^xsd:string ;
+        <https://dhplus.sbg.ac.at/ontology#personalName> "NN"^^xsd:string ;
+        <https://dhplus.sbg.ac.at/ontology#counting> "NN"^^xsd:string ;
+        <https://dhplus.sbg.ac.at/ontology#nameAddition> "NN"^^xsd:string ;
+
+        <https://dhplus.sbg.ac.at/ontology#academicDegree> "Dr. rer. nat."^^xsd:string ;
+        <https://dhplus.sbg.ac.at/ontology#biographicalOrHistoricalInformation> "NN"^^xsd:string ;
+        <https://dhplus.sbg.ac.at/ontology#functionOrRole> "NN"^^xsd:string ;
+
+    ] ;
+
+    #gender
+    <https://dhplus.sbg.ac.at/ontology#P2_has_type> [
+        a   <https://dhplus.sbg.ac.at/ontology#Gender> ;
+
+        <https://dhplus.sbg.ac.at/ontology#gender> <https://d-nb.info/standards/vocab/gnd/gender#male> ;
+        #or
+        <https://dhplus.sbg.ac.at/ontology#gender> <https://d-nb.info/standards/vocab/gnd/gender#female> ;
+        #or
+        <https://dhplus.sbg.ac.at/ontology#gender> <https://d-nb.info/standards/vocab/gnd/gender#notKnown> ;
+
+        <https://dhplus.sbg.ac.at/ontology#P21> <http://www.wikidata.org/entity/Q00000> ;
+    ]
+.
+
+_:StmtPrefName
+    a rdf:Statement ;
+    rdf:subject [] ;
+    rdf:predicate dhpluso:preferredNameForThePerson ;
+    rdf:object "NN"^^xsd:string ;
+
+    #subprop of dct:source
+    dhpluso:value-source-uri <http://dhplus.sbg.ac.at/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local> ;
+    dhpluso:value-source-prop gndo:preferredNameForThePerson ;
+    #subprop of dct:description
+    dhpluso:value-code <https://dhplus.sbg.ac.at/vocabulary#default> ;
+
+    <https://dhplus.sbg.ac.at/ontology#creator> "NN"^^xsd:string ;
+    <https://dhplus.sbg.ac.at/ontology#dateCreated> "0001-01-01T00:00:00"^^xsd:dateTime ;
+    <https://dhplus.sbg.ac.at/ontology#dateModified> "0001-01-01T00:00:00"^^xsd:dateTime ;
+.
+
+#gnd
+<http://dhplus.sbg.ac.at/instance/828f9830-91b1-11ea-bb37-0242ac130002/gnd-local>
+    a   <https://dhplus.sbg.ac.at/ontology#Gnd-local> ;
+    <https://dhplus.sbg.ac.at/ontology#hasPart> [
+        a   <http://d-nb.info/standards/elementset/gnd#Person> ;
+        wdrs:describedby <https://d-nb.info/gnd/123191254/about> ;
+        gndo:gndIdentifier "123191254"^^xsd:string ;
+        owl:sameAs <http://viaf.org/viaf/8288651>, <http://isni.org/isni/0000000118857158>, <http://www.wikidata.org/entity/Q98555088>, <http://id.loc.gov/rwo/agents/no2002097801> ;
+        gndo:oldAuthorityNumber "(DE-588a)123191254"^^xsd:string ;
+        gndo:variantNameForThePerson "Šarr, Kurt"^^xsd:string ;
+        gndo:variantNameEntityForThePerson [
+        gndo:forename "Kurt"^^xsd:string ;
+        gndo:surname "Šarr"^^xsd:string
+        ] ;
+        gndo:preferredNameForThePerson "Scharr, Kurt"^^xsd:string ;
+        gndo:preferredNameEntityForThePerson [
+        gndo:forename "Kurt"^^xsd:string ;
+        gndo:surname "Scharr"^^xsd:string
+        ] ;
+        gndo:academicDegree "Dr. rer. nat."^^xsd:string ;
+        gndo:professionOrOccupation <https://d-nb.info/gnd/4025098-2>, <https://d-nb.info/gnd/4020214-8>, <https://d-nb.info/gnd/4025243-7> ;
+        gndo:fieldOfStudy <https://d-nb.info/gnd/4020216-1>, <https://d-nb.info/gnd/4020517-4>, <https://d-nb.info/gnd/4051038-4> ;
+        gndo:geographicAreaCode <https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT> ;
+        gndo:gender <https://d-nb.info/standards/vocab/gnd/gender#male> ;
+        gndo:dateOfBirth "1970"^^xsd:gYear ;
+    ]
+.
+
+<https://d-nb.info/gnd/123191254/about>
+  dc:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
+  dc:modified "2020-08-31T14:22:06.000"^^xsd:dateTime
+.
+
+#wikidata
+<http://dhplus.sbg.ac.at/instance/828f9830-91b1-11ea-bb37-0242ac130002/wikiData-local>
+    a   <https://dhplus.sbg.ac.at/ontology#WikiData-local> ;
+    <https://dhplus.sbg.ac.at/ontology#hasPart> [
+        a schema:Dataset ;
+        schema:about <http://www.wikidata.org/entity/Q98555088> ;
+        cc:license <http://creativecommons.org/publicdomain/zero/1.0/> ;
+        schema:softwareVersion "1.0.0" ;
+        schema:version 1293440440 ;
+        schema:dateModified "2020-10-17T18:59:37Z"^^xsd:dateTime ;
+        wikibase:statements 12 ;
+        wikibase:identifiers 2 ;
+        wikibase:sitelinks 1 ;
+    ]
+.
+
+<http://www.wikidata.org/entity/Q00000>
+    a           <http://wikiba.se/ontology#Item> ;
+    #name
+    rdfs:label  "NN"@en , "NN"@de ;
+
+    #gender
+    <http://www.wikidata.org/prop/direct/P21> <http://www.wikidata.org/entity/Q00000> ;
+
+    #birth
+    <http://www.wikidata.org/prop/direct/P569> "0001-01-01T08:00:00.000"^^xsd:dateTime ;
+    #Statement to Date of Birth
+    <http://www.wikidata.org/prop/P569> [
+        a   <http://wikiba.se/ontology#Statement> ;
+    #earliest date
+        <http://www.wikidata.org/prop/qualifier/P1319> "0001-01-01T08:00:00.000"^^xsd:dateTime ;
+    #latest date
+        <http://www.wikidata.org/prop/qualifier/P1326> "0001-01-01T08:00:00.000"^^xsd:dateTime ;
+    #circa
+        <http://www.wikidata.org/prop/qualifier/P1480> <http://www.wikidata.org/entity/Q5727902> ;
+    #time precision
+        <http://www.wikidata.org/prop/qualifier/P2803> +00 ; #xsd:decimal
+    ] ;
+    #place of birth
+    <http://www.wikidata.org/prop/direct/P19> <http://www.wikidata.org/entity/Q00000> ;
+
+    #death
+    <http://www.wikidata.org/prop/direct/P570> "0001-01-01T08:00:00.000"^^xsd:dateTime ;
+    #Statement to Date of death
+    <http://www.wikidata.org/prop/P570> [
+        a   <http://wikiba.se/ontology#Statement> ;
+    #earliest date
+        <http://www.wikidata.org/prop/qualifier/P1319> "0001-01-01T08:00:00.000"^^xsd:dateTime ;
+    #latest date
+        <http://www.wikidata.org/prop/qualifier/P1326> "0001-01-01T08:00:00.000"^^xsd:dateTime ;
+    #circa
+        <http://www.wikidata.org/prop/qualifier/P1480> <http://www.wikidata.org/entity/Q5727902> ;
+    #time precision
+        <http://www.wikidata.org/prop/qualifier/P2803> +00 ; #xsd:decimal
+    ] ;
+    #place of death
+    <http://www.wikidata.org/prop/direct/P20> <http://www.wikidata.org/entity/Q00000> ;
+.
+
+#projspec
+<http://dhplus.sbg.ac.at/instance/828f9830-91b1-11ea-bb37-0242ac130002/projSpec>
+    a       <https://dhplus.sbg.ac.at/ontology#ProjectSpecific> ;
+.
+

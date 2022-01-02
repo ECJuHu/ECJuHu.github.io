@@ -1,0 +1,87 @@
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wikibase: <http://wikiba.se/ontology#> .
+@prefix gndo: <https://d-nb.info/standards/elementset/gnd#> .
+@prefix ecrm: <http://erlangen-crm.org/current/> .
+@prefix bf: <http://id.loc.gov/ontologies/bibframe/> .
+@prefix bfo: <http://id.loc.gov/ontologies/bibframe.rdf> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix wdrs: <http://www.w3.org/2007/05/powder-s#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dhpluso: <https://dhplus.sbg.ac.at/ontology#> .
+@base <https://dhplus.sbg.ac.at/ontology/person> .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+#dhplus
+_:PersonShape
+    a sh:NodeShape ;
+
+#shacl validation
+    sh:targetClass dhpluso:E21_Person ;
+
+    sh:property [
+                    #sh:name - property for field label
+                    sh:name "Orcid" ;
+                    sh:path owl:sameAs ;
+                    #no value or only one orcid uri value are valid
+                    sh:maxCount 1 ;
+                    sh:nodeKind sh:IRI ;
+                    sh:pattern "https://orcid.org/" ;
+                ] ;
+    sh:property [
+                    #no field in editor mask
+                    sh:path dhpluso:P1_is_identified_by ;
+                    sh:class dhpluso:NameOfThePerson ;
+                ] ;
+    sh:property [
+                    sh:path dhpluso:source ;
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                                [ sh:pattern "/gnd-local" ]
+                                [ sh:pattern "/wikiData-local" ]
+                                [ sh:pattern "/projSpec" ]
+                            )
+                ] ;
+.
+
+##name
+_:NameShape
+    a sh:NodeShape ;
+
+#shacl validation
+    sh:targetClass dhpluso:NameOfThePerson ;
+    sh:property  [
+                    sh:name "Name (Vorname Nachname)"@de ;
+                    sh:path rdfs:label ;
+                    sh:datatype rdf:langString ;
+                    sh:or (
+                            [ sh:languageIn ("de") ]
+                            [ sh:languageIn ("en") ]
+                    )
+    ] ;
+    sh:property [
+                    sh:name "Funktion (KNGÖ)"@de ;
+                    sh:path dhpluso:functionOrRoleAsLiteral ;
+                    sh:datatype rdf:langString ;
+                    sh:languageIn ("de") ;
+                ] ;    
+    sh:property [
+                    sh:name "Biographische Information"@de ;
+                    sh:path dhpluso:biographicalOrHistoricalInformation ;
+                    sh:datatype rdf:langString ;
+                    sh:languageIn ("de") ;
+                ] ;
+    
+.

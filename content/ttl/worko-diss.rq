@@ -1,0 +1,78 @@
+PREFIX xml: <http://www.w3.org/XML/1998/namespace>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wikibase: <http://wikiba.se/ontology#>
+PREFIX gndo: <https://d-nb.info/standards/elementset/gnd#>
+PREFIX ecrm: <http://erlangen-crm.org/current/>
+PREFIX bf: <http://id.loc.gov/ontologies/bibframe/>
+PREFIX bfo: <http://id.loc.gov/ontologies/bibframe.rdf>
+PREFIX schema: <http://schema.org/>
+PREFIX sh: <http://www.w3.org/ns/shacl#>
+PREFIX wdrs: <http://www.w3.org/2007/05/powder-s#>
+PREFIX cc: <http://creativecommons.org/ns#>
+PREFIX dhpluso: <https://dhplus.sbg.ac.at/ontology#>
+
+SELECT DISTINCT ?volnr ( CONCAT(?name_dis, ?mainTitle_dis, ?subTitle_dis, ?partNr_dis, ?partName_dis, ?respStmt_dis, ?provStmt_dis) AS ?cit )
+WHERE
+{ 
+    ?s  a dhpluso:Work ;        
+        dhpluso:hasInstance ?s_I ;
+    .
+    #works only if work dataset is connected with a person dataset    
+    OPTIONAL { ?s_contr_aut a dhpluso:Contribution ;
+                            ^dhpluso:contribution ?s ;
+            				dhpluso:agent ?s_agent ;
+                        	dhpluso:role <http://id.loc.gov/vocabulary/relators/aut> ;
+			   .
+        	   ?s_agent dhpluso:P1_is_identified_by/rdfs:label ?name;
+    		   .
+        	   FILTER (lang(?name) = "de") .
+    }
+    
+    OPTIONAL { ?s_contr_oth a dhpluso:Contribution ;
+                            ^dhpluso:contribution ?s ;            				
+                        	dhpluso:role ?role_agent ;
+			   .        	   
+        	   FILTER (?role_agent != <http://id.loc.gov/vocabulary/relators/aut> ) .        	   
+    }
+    BIND (IF (BOUND(?s_contr_aut), CONCAT (?name, ": "), "") AS ?name_dis ) .
+    
+    ?s_I a dhpluso:Instance ;
+         dhpluso:title/dhpluso:mainTitle ?mainTitle ;
+    .
+    BIND ( CONCAT( UCASE(SUBSTR(?mainTitle,1,1)), SUBSTR(?mainTitle,2,STRLEN(?mainTitle)-1) ) AS ?mainTitle_conv ) .
+    BIND ( CONCAT (?mainTitle_conv, ". ") AS ?mainTitle_dis ) .    
+    
+    OPTIONAL { ?s_I dhpluso:title/dhpluso:subtitle ?subTitle . 
+    		   BIND ( CONCAT( UCASE(SUBSTR(?subTitle,1,1)), SUBSTR(?subTitle,2,STRLEN(?subTitle)-1) ) AS ?subTitle_conv ) .
+    }    				
+    BIND (IF (BOUND(?subTitle), CONCAT (?subTitle_conv, ". "), "") AS ?subTitle_dis ) .    
+    
+    OPTIONAL { ?s_I dhpluso:title/dhpluso:partNumber ?partNr . }
+    BIND (IF (BOUND(?partNr), CONCAT (?partNr, ". "), "") AS ?partNr_dis ) . 
+    
+    OPTIONAL { ?s_I dhpluso:title/dhpluso:partName ?partName . 
+    		   BIND ( CONCAT( UCASE(SUBSTR(?partName,1,1)), SUBSTR(?partName,2,STRLEN(?partName)-1) ) AS ?partName_conv ) .
+    }
+    BIND (IF (BOUND(?partName), CONCAT (?partName_conv, ". "), "") AS ?partName_dis ) . 
+    
+    OPTIONAL { ?s_I dhpluso:responsibilityStatement ?respStmt . 
+    		   BIND ( CONCAT( UCASE(SUBSTR(?respStmt,1,1)), SUBSTR(?respStmt,2,STRLEN(?respStmt)-1) ) AS ?respStmt_conv ) .
+    }
+    BIND (IF (BOUND(?respStmt), CONCAT (?respStmt_conv, ". "), "") AS ?respStmt_dis ) .    
+    
+    OPTIONAL { ?s_I dhpluso:provisionActivityStatement ?provStmt . }
+    BIND (IF (BOUND(?provStmt), CONCAT (?provStmt, ". "), "") AS ?provStmt_dis ) .    
+    
+    ?s_I dhpluso:hasSeries/dhpluso:seriesEnumeration ?volnr ;
+    .
+    
+    BIND (  IF ( (?dhpClass = dhpluso:InstanceParameter) && (?o_init = dhpluso:Event) , dhpluso:DhpUriFunction(?item), ?nothing ) AS ?s_uri )
+}
+

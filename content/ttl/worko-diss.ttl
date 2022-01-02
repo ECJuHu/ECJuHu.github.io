@@ -1,0 +1,171 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix ecrm: <http://erlangen-crm.org/current/> .
+@prefix bf: <http://id.loc.gov/ontologies/bibframe/> .
+@prefix bfo: <http://id.loc.gov/ontologies/bibframe.rdf> .
+@prefix bflc: <http://id.loc.gov/ontologies/bflc/> .
+@prefix schema: <http://schema.org/> .
+@prefix gndo: <http://d-nb.info/standards/elementset/gnd#> .
+@prefix wdrs: <http://www.w3.org/2007/05/powder-s#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dhpluso: <https://dhplus.sbg.ac.at/ontology#> .
+@base <https://dhplus.sbg.ac.at/ontology/work> .
+
+<https://dhplus.sbg.ac.at/ontology/work>
+  a owl:Ontology ;
+  dc:title "dhPLUS Ontologie"@de ;
+  dc:title "dhPLUS Ontology"@en ;
+  dct:creator "Richard Hörmann" ;
+  owl:comment "This is an ontology of the dhPLUS repository for Digital Humanities Projects of the University of Salzburg."@en ;
+  owl:versionInfo "0.1"^^xsd:string, "2019-12-27"^^xsd:date ;
+  owl:versionIRI <https://dhplus.sbg.ac.at/ontology#/0.1> ;
+  #owl:imports
+.
+
+#################################################################
+#Classes
+#################################################################
+
+
+#dhplus
+#################################################################
+
+#work
+_:WorkShape
+    a sh:NodeShape ;
+
+#shacl validation
+    sh:targetClass dhpluso:Work ;
+
+    sh:property [
+                    sh:path dhpluso:source ;
+                    sh:nodeKind sh:IRI ;
+                    sh:or (
+                                [ sh:pattern "/Bf-LoC" ]
+                                [ sh:pattern "/projSpec" ]
+                            )
+                ] ;
+    #link to bf:instance
+    sh:property [
+                    sh:path <https://dhplus.sbg.ac.at/ontology#hasInstance> ;
+                    sh:nodeKind sh:IRI ;
+                    sh:pattern "/Instance" ;
+                    sh:class dhpluso:Instance ;
+                ] ;
+
+    #contribution
+    #MARC 100, 700
+    sh:property [
+                    sh:path <https://dhplus.sbg.ac.at/ontology#contribution> ;
+                    sh:nodeKind sh:BlankNode ;
+                    sh:class <https://dhplus.sbg.ac.at/ontology#Contribution> ;
+                ] ;
+.
+
+##contribution
+#MARC 100, 700
+_:ContributionShape
+    a sh:NodeShape ;
+
+#shacl validation
+    sh:targetClass dhpluso:Contribution ;
+
+    sh:property [
+        sh:path <https://dhplus.sbg.ac.at/ontology#agent> ;
+        sh:nodeKind sh:IRI ;
+        sh:pattern "http://dhplus.sbg.ac.at/kngoe/instance/" ;
+        sh:class <https://dhplus.sbg.ac.at/ontology#E21_Person> ;
+    ] ;
+    sh:property [
+        #sh:deactivated false ;
+        sh:path <https://dhplus.sbg.ac.at/ontology#role> ;
+        sh:or (
+          #author
+          [ sh:hasValue <http://id.loc.gov/vocabulary/relators/aut> ]
+          #contributor
+          [ sh:hasValue <http://id.loc.gov/vocabulary/relators/ctb> ]
+          #editor
+          [ sh:hasValue <http://id.loc.gov/vocabulary/relators/edt> ]
+          #publisher
+          [ sh:hasValue <http://id.loc.gov/vocabulary/relators/pbl> ]
+          #other
+          [ sh:hasValue <http://id.loc.gov/vocabulary/relators/oth> ]
+          #Blank Node
+          [ sh:nodeKind sh:BlankNode ]
+        ) ;
+    ] ;
+.
+
+##contributor
+#MARC 100, 700
+_:PersonShape
+    a sh:NodeShape ;
+
+#shacl validation
+    sh:targetClass dhpluso:E21_Person ;
+
+    sh:property [
+                    sh:name "Autor (Vorname Nachname)"@de ;
+                    sh:path ( dhpluso:P1_is_identified_by rdfs:label ) ;
+                    sh:datatype rdf:langString ;
+                    sh:or (
+                              [ sh:languageIn ("de") ]
+                              [ sh:languageIn ("en") ]
+                          )
+                ] ;
+.
+
+#instance
+_:InstanceShape
+    a sh:NodeShape ;
+
+#shacl validation
+    sh:targetClass dhpluso:Instance ;
+
+    sh:property [
+                    sh:name "Bandnummer (Ausgabe Kommission)"@de ;
+                    sh:path ( dhpluso:hasSeries dhpluso:seriesEnumeration ) ;
+                    sh:datatype xsd:string ;
+                ] ;
+
+    sh:property [
+                    sh:name "Titel"@de ;
+                    sh:path ( dhpluso:title dhpluso:mainTitle ) ;
+                    sh:datatype xsd:string ;
+    ] ;
+    sh:property [
+                    sh:name "Untertitel"@de ;
+                    sh:path ( dhpluso:title dhpluso:subtitle ) ;
+                    sh:datatype xsd:string ;
+                ] ;
+    sh:property [
+                    sh:name "Teilnummer"@de ;
+                    sh:path ( dhpluso:title dhpluso:partNumber ) ;
+                    sh:datatype xsd:string ;
+                ] ;
+    sh:property [
+                    sh:name "Teilname"@de ;
+                    sh:path ( dhpluso:title dhpluso:partName ) ;
+                    sh:datatype xsd:string ;
+                ] ;
+    sh:property [
+                    sh:name "Angabe zur Verantwortung"@de ;
+                    sh:path dhpluso:responsibilityStatement ;
+                    sh:datatype xsd:string ;
+                ] ;
+    sh:property [
+                    sh:name "Angabe zur Publikation"@de ;
+                    sh:path dhpluso:provisionActivityStatement ;
+                    sh:datatype xsd:string ;
+                ] ;
+
+.
+
